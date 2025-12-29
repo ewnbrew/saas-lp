@@ -519,7 +519,7 @@ export default function Home() {
             </div>
           </section>
 
-          <section>
+          {/* <section>
             <div
               id="pricing"
               className="rounded-[28px] border border-blue-100 bg-white p-6 sm:p-8 shadow-[0_20px_60px_-30px_rgba(15,23,42,0.12)] space-y-6"
@@ -552,7 +552,7 @@ export default function Home() {
               </div>
               <p className="text-sm text-[#1d4ed8]">Upgrade anytime as your volume grows.</p>
             </div>
-          </section>
+          </section> */}
 
           <section id="operations">
             <div className="flex items-center justify-center">
