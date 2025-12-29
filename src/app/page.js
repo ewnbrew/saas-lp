@@ -1,8 +1,10 @@
 "use client";
 
-import { Airplay, ArrowRightLeftIcon, RailSymbol, ScanTextIcon, ToggleRightIcon, WorkflowIcon } from "lucide-react";
+import { Airplay, AlertCircleIcon, ArrowRightLeftIcon, BeerIcon, CalendarCheckIcon, ChefHat, ChefHatIcon, CoffeeIcon, CreditCardIcon, icons, MapPinHouseIcon, MessageCircleIcon, PackageCheckIcon, PackageSearchIcon, RailSymbol, ScanTextIcon, ToggleRightIcon, UserRoundCogIcon, UtensilsIcon, WorkflowIcon } from "lucide-react";
 import Image from "next/image";
 import dynamic from "next/dynamic";
+import { FiBell, FiBookOpen, FiCalendar, FiGlobe, FiSend, FiShoppingBag } from "react-icons/fi";
+import { FaWhatsapp } from "react-icons/fa";
 
 const TargetIcon = ({ className = "h-5 w-5" }) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className={className}>
@@ -105,12 +107,12 @@ const ChartIcon = ({ className = "h-5 w-5" }) => (
 
 export default function Home() {
   const audiences = [
-    "Quick service & takeaway",
-    "Casual dining & cafés",
-    "Bars, lounges, and nightlife",
-    "Cloud kitchens & delivery-only brands",
-    "Fine dining & premium restaurants",
-    "Multi-location restaurant groups",
+    { name: "Quick service & takeaway", icon: <PackageCheckIcon /> },
+    { name: "Casual dining & cafés", icon: <CoffeeIcon /> },
+    { name: "Bars, lounges, and nightlife", icon: <BeerIcon /> },
+    { name: "Cloud kitchens & delivery-only brands", icon: <ChefHatIcon /> },
+    { name: "Fine dining & premium restaurants", icon: <UtensilsIcon /> },
+    { name: "Multi-location restaurant groups", icon: <MapPinHouseIcon /> },
   ];
 
   const painPoints = [
@@ -122,33 +124,49 @@ export default function Home() {
   ];
 
   const benefits = [
-    "Answers menu, price, and opening hour questions instantly",
-    "Takes reservations and booking requests",
-    "Handles order inquiries and delivery status",
-    "Sends payment links and confirmations",
-    "Escalates to staff only when needed",
+    {
+      name: "Answers menu, price, and opening hour questions instantly",
+      icon: <MessageCircleIcon />,
+    },
+    {
+      name: "Takes reservations and booking requests",
+      icon: <CalendarCheckIcon />,
+    },
+    {
+      name: "Handles order inquiries and delivery status",
+      icon: <PackageSearchIcon />,
+    },
+    {
+      name: "Sends payment links and confirmations",
+      icon: <CreditCardIcon />,
+    },
+    {
+      name: "Escalates to staff only when needed",
+      icon: <UserRoundCogIcon />,
+    },
   ];
 
   const featureMatrix = [
-    { title: "Menu Browsing", description: "Smart recommendations based on customer preferences." },
-    { title: "Reservations", description: "Automated table requests and calendar management." },
-    { title: "Order Intake", description: "Seamless handoff for orders or secure payment links." },
-    { title: "Status Updates", description: "Real-time delivery and order tracking notifications." },
-    { title: "Global FAQs", description: "Instant answers for location, hours, promos, and policies." },
+    { title: "Menu Browsing", description: "Smart recommendations based on customer preferences.", icon: FiBookOpen },
+    { title: "Reservations", description: "Automated table requests and calendar management.", icon: FiCalendar },
+    { title: "Order Intake", description: "Seamless handoff for orders or secure payment links.", icon: FiShoppingBag },
+    { title: "Status Updates", description: "Real-time delivery and order tracking notifications.", icon: FiBell },
+    { title: "Global FAQs", description: "Instant answers for location, hours, promos, and policies.", icon: FiGlobe },
   ];
 
   const advantages = [
-    "Universal Compatibility: Works for any restaurant type.",
-    "Zero Friction: No technical setup required.",
-    "Scalability: Grows from a single outlet to national chains.",
-    "Brand Voice: Consistent replies across all locations.",
-    "Operational Focus: Designed specifically for restaurant workflows.",
+    "Universal Compatibility",
+    "Zero Friction",
+    "Scalability",
+    "Brand Voice",
+    "Operational Focus",
   ];
+  const marqueeAdvantages = [...advantages, ...advantages];
 
   const channels = [
-    { title: "WhatsApp", badge: "Primary", copy: "Launch where guests already message you." },
-    { title: "Website Live Chat", badge: "Web", copy: "Own the conversation on your site, instantly." },
-    { title: "Instagram / Social Chat", badge: "Optional", copy: "Extend the same experience to social." },
+    { title: "WhatsApp", badge: "Primary", copy: "Launch where guests already message you.", icon: FaWhatsapp },
+    { title: "Website Live Chat", badge: "Web", copy: "Own the conversation on your site, instantly.", icon: FiGlobe },
+    { title: "Instagram / Social Chat", badge: "Optional", copy: "Extend the same experience to social.", icon: FiSend },
   ];
 
   const steps = [
@@ -183,10 +201,10 @@ export default function Home() {
   ];
 
   const operations = [
-    { text: "Handles peak-hour traffic without lag.", icon: <ArrowRightLeftIcon strokeWidth={1.5} />},
-    { text: "Avoids over-promising to ensure realistic customer expectations." , icon: <ScanTextIcon strokeWidth={1.5} /> },
-    { text: "Uses a clear fallback to human staff when necessary.", icon: <ToggleRightIcon strokeWidth={1.5} />},
-    { text: "Matches real-world restaurant workflows, not just theoretical ones.", icon: <WorkflowIcon strokeWidth={1.5} />},
+    { text: "Handles peak-hour traffic without lag.", icon: <ArrowRightLeftIcon /> },
+    { text: "Avoids over-promising to ensure realistic customer expectations.", icon: <ScanTextIcon /> },
+    { text: "Uses a clear fallback to human staff when necessary.", icon: <ToggleRightIcon /> },
+    { text: "Matches real-world restaurant workflows, not just theoretical ones.", icon: <WorkflowIcon /> },
   ];
 
   const navLinks = [
@@ -233,7 +251,7 @@ export default function Home() {
       </div>
 
       <main className="space-y-16">
-        <section className="relative w-full px-6 sm:px-10 pt-8 min-h-[100dvh] lg:min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-[#e0f2fe] via-white to-[#e0fcef]">
+        <section className="relative pt-16 pb-16 w-full px-6 sm:px-10 pt-8 min-h-[100dvh] lg:min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-[#e0f2fe] via-white to-[#e0fcef]">
           <div className="mx-auto grid w-full max-w-7xl gap-12 lg:grid-cols-[1.1fr_0.9fr] items-center">
             <div className="space-y-8">
               <div className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white px-4 py-2 text-xs font-semibold text-[#1d4ed8] shadow-sm">
@@ -276,154 +294,217 @@ export default function Home() {
         </section>
 
         <div className="mx-auto max-w-6xl px-6 sm:px-10 space-y-16 pb-16">
-          <section id="audience" className="grid gap-6 lg:grid-cols-12">
-            <div className="lg:col-span-12 rounded-[28px] border border-blue-100 bg-white p-6 sm:p-8 shadow-[0_20px_60px_-30px_rgba(15,23,42,0.12)]">
-              <div className="flex items-center gap-3">
-                <div className="h-11 w-11 rounded-2xl bg-blue-50 text-[#1d4ed8] flex items-center justify-center">
-                  <TargetIcon className="h-5 w-5" />
-                </div>
+          <section id="audience" className="pb-16 grid gap-6 lg:grid-cols-12">
+            <div className="lg:col-span-12">
+              <div className="flex flex-wrap">
                 <div>
                   <h2 className="text-2xl font-semibold">Who this is for</h2>
-                  <p className="text-sm text-slate-600">Built to work seamlessly across various dining models.</p>
+                  <p className="text-sm text-slate-600">
+                    Built to work seamlessly across various dining models.
+                  </p>
                 </div>
               </div>
-              <div className="mt-6 grid gap-3 sm:grid-cols-2">
-                {audiences.map((item, idx) => (
-                  <span
-                    key={item}
-                    className={`rounded-2xl border border-blue-100 px-4 py-3 text-sm font-medium text-[#0f172a] shadow-sm bg-white`}
+
+              <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {audiences.map((item, index) => (
+                  <div
+                    key={index}
+                    className="flex items-center gap-2 rounded-2xl border border-blue-50 bg-gradient-to-br from-white via-white to-blue-50/30 px-5 py-4 text-sm font-medium text-[#0f172a] transition hover:-translate-y-0.5 hover:shadow-md"
                   >
-                    {item}
-                    <Airplay />
-                  </span>
+                    <div className="bg-[#e0f2fe] p-2 rounded-lg text-[#1d4ed8] border border-blue-50">
+                      {item.icon}
+                    </div>
+                    <span>{item.name}</span>
+                  </div>
                 ))}
               </div>
-              <p className="mt-5 text-sm text-[#1d4ed8]">One platform, tailored automatically to how your restaurant operates.</p>
+
+              <p className="mt-5 text-sm text-[#1d4ed8]">
+                One platform, tailored automatically to how your restaurant operates.
+              </p>
             </div>
           </section>
 
-          <section>
-            <div className="lg:col-span-5 rounded-[28px] border border-blue-100 bg-white p-6 sm:p-8 shadow-[0_20px_60px_-30px_rgba(15,23,42,0.12)]">
+
+          <section className="grid items-center gap-6 lg:grid-cols-12">
+            <div className="lg:col-span-6">
+              <div className="relative overflow-hidden rounded-[28px] bg-gradient-to-br from-[#1d4ed8] via-[#2563eb] to-[#1e40af] shadow-[0_25px_70px_-35px_rgba(37,99,235,0.7)]">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.18),transparent_35%),radial-gradient(circle_at_80%_0%,rgba(255,255,255,0.15),transparent_30%)]" />
+                <Image
+                  src="/assets/hero.png"
+                  alt="Guests chatting with the AI host"
+                  width={1200}
+                  height={900}
+                  className="h-full w-full object-cover opacity-90"
+                  priority
+                />
+                <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between rounded-2xl bg-white/85 px-4 py-3 text-sm font-semibold text-[#0f172a] backdrop-blur shadow-lg">
+                  <span className="flex items-center gap-2">
+                    <span className="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-blue-100 text-blue-600">24/7</span>
+                    Calm automation for busy services
+                  </span>
+                  <span className="text-xs font-semibold text-blue-700">WhatsApp + Web</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="lg:col-span-6 space-y-6">
               <div className="flex items-center gap-3">
                 <div className="h-11 w-11 rounded-2xl bg-blue-50 text-[#1d4ed8] flex items-center justify-center">
-                  <AlertTriangleIcon className="h-5 w-5" />
+                  <AlertCircleIcon className="h-5 w-5" />
                 </div>
                 <div>
                   <h2 className="text-2xl font-semibold">The problems restaurants face</h2>
-                  <p className="text-sm text-slate-600">Daily friction points, distilled.</p>
+                  <p className="text-sm text-slate-600">Pinpointing the daily friction.</p>
                 </div>
               </div>
-              <div className="mt-6 space-y-3">
+              <div className="space-y-3">
                 {painPoints.map((point, idx) => (
                   <div
                     key={point}
-                    className={`flex items-center gap-3 rounded-2xl border border-blue-100 px-4 py-3 text-slate-700 ${idx % 2 === 0 ? "bg-blue-50" : "bg-white"
-                      }`}
+                    className={`flex items-center gap-3 rounded-2xl border border-blue-100 px-4 py-3 text-slate-700 bg-white`}
                   >
                     <span className="text-lg">❌</span>
-                    <p className="text-sm">{point}</p>
+                    <p className="text-sm font-semibold">{point}</p>
                   </div>
                 ))}
               </div>
             </div>
           </section>
 
-          <section id="benefits" className="grid gap-6 lg:grid-cols-12 items-start">
-            <div className="lg:col-span-6 rounded-[28px] border border-blue-100 bg-white p-6 sm:p-8 shadow-[0_20px_60px_-30px_rgba(15,23,42,0.12)]">
-              <div className="flex items-center gap-3">
-                <div className="h-11 w-11 rounded-2xl bg-blue-50 text-[#1d4ed8] flex items-center justify-center">
-                  <SparklesIcon className="h-5 w-5" />
-                </div>
+          <section id="audience" className="pb-16 pt-16 grid gap-6 lg:grid-cols-12">
+            <div className="lg:col-span-12">
+              <div className="flex flex-wrap">
                 <div>
                   <h2 className="text-2xl font-semibold">Your always-on digital host</h2>
-                  <p className="text-sm text-slate-600">Core benefits, tuned for hospitality.</p>
+                  <p className="text-sm text-slate-600">
+                    Core benefits, tuned for hospitality.
+                  </p>
                 </div>
               </div>
-              <div className="mt-6 grid gap-3">
-                {benefits.map((benefit, idx) => (
+
+              <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {benefits.map((item, index) => (
                   <div
-                    key={benefit}
-                    className={`flex items-start gap-3 rounded-2xl border border-blue-100 px-4 py-3 ${idx % 2 === 0 ? "bg-white" : "bg-blue-50"
-                      }`}
+                    key={index}
+                    className="flex items-center gap-2 rounded-2xl border border-blue-50 bg-gradient-to-br from-white via-white to-blue-50/30 px-5 py-4 text-sm font-medium text-[#0f172a] transition hover:-translate-y-0.5 hover:shadow-md"
                   >
-                    <span className="mt-0.5 text-lg">✔️</span>
-                    <p className="text-sm text-slate-700">{benefit}</p>
+                    <div className="bg-[#e0f2fe] p-2 rounded-lg text-[#1d4ed8] border border-blue-50">
+                      {item.icon}
+                    </div>
+                    <span>{item.name}</span>
                   </div>
                 ))}
               </div>
             </div>
-            <div id="features" className="lg:col-span-6 rounded-[28px] border border-blue-100 bg-white p-6 sm:p-8 shadow-[0_20px_60px_-30px_rgba(15,23,42,0.12)]">
+          </section>
+
+          <section id="benefits" className="grid pb-16 pt-10 gap-6 lg:grid-cols-12 items-start">
+            <div id="features" className="lg:col-span-12">
               <div className="flex items-center gap-3">
-                <div className="h-11 w-11 rounded-2xl bg-blue-50 text-[#1d4ed8] flex items-center justify-center">
-                  <CompassIcon className="h-5 w-5" />
-                </div>
                 <div>
                   <h2 className="text-2xl font-semibold">Feature automation matrix</h2>
                   <p className="text-sm text-slate-600">Automations mapped to guest journeys.</p>
                 </div>
               </div>
-              <div className="mt-6 grid gap-4 sm:grid-cols-2">
-                {featureMatrix.map((feature, idx) => (
-                  <div
-                    key={feature.title}
-                    className={`rounded-2xl border border-blue-100 p-4 shadow-sm ${idx % 2 === 0 ? "bg-blue-50" : "bg-white"
-                      }`}
-                  >
-                    <p className="text-sm font-semibold text-[#0f172a]">{feature.title}</p>
-                    <p className="mt-2 text-sm text-slate-600">{feature.description}</p>
-                  </div>
-                ))}
+              <div className="mt-6 grid gap-4 sm:grid-cols-3">
+                {featureMatrix.map((feature) => {
+                  const Icon = feature.icon;
+                  return (
+                    <div key={feature.title} className="rounded-2xl border border-blue-50 p-8 shadow-sm bg-gradient-to-br from-blue-50 via-white to-blue-10]">
+                      <div className="flex flex-col gap-3">
+                        <span className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-50 text-[#1d4ed8]">
+                          <Icon className="h-5 w-5" />
+                        </span>
+                        <p className="text-base font-semibold text-[#0f172a]">{feature.title}</p>
+                      </div>
+                      <p className="mt-3 text-sm text-slate-600">{feature.description}</p>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </section>
 
-          <section id="channels" className="grid gap-6 lg:grid-cols-12">
-            <div className="lg:col-span-6 rounded-[28px] border border-blue-100 bg-white p-6 sm:p-8 shadow-[0_20px_60px_-30px_rgba(15,23,42,0.12)]">
-              <div className="flex items-center gap-3">
-                <div className="h-11 w-11 rounded-2xl bg-blue-50 text-[#1d4ed8] flex items-center justify-center">
-                  <AwardIcon className="h-5 w-5" />
-                </div>
-                <div>
-                  <h2 className="text-2xl font-semibold">Why restaurants choose this</h2>
-                  <p className="text-sm text-slate-600">Competitive advantages built-in.</p>
-                </div>
+          <section id="channels" className="space-y-6">
+            <div className="flex items-center gap-3">
+              <div className="h-11 w-11 rounded-2xl bg-blue-50 text-[#1d4ed8] flex items-center justify-center">
+                <AwardIcon className="h-5 w-5" />
               </div>
-              <div className="mt-6 space-y-3">
-                {advantages.map((advantage, idx) => (
-                  <div
-                    key={advantage}
-                    className={`flex items-start gap-3 rounded-2xl border border-blue-100 px-4 py-3 text-slate-700 ${idx % 2 === 0 ? "bg-blue-50" : "bg-white"
-                      }`}
+              <div>
+                <h2 className="text-2xl font-semibold">Why restaurants choose this</h2>
+                <p className="text-sm text-slate-600">Competitive advantages, on a smooth marquee.</p>
+              </div>
+            </div>
+
+            <div className="relative overflow-hidden rounded-[28px] px-4 py-5">
+              <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-white via-white/60 to-transparent" />
+              <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-white via-white/60 to-transparent" />
+              <div className="marquee-track flex gap-3">
+                {marqueeAdvantages.map((advantage, idx) => (
+                  <span
+                    key={`${advantage}-${idx}`}
+                    className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white px-4 py-2 text-sm font-semibold text-[#0f172a] shadow-sm"
                   >
-                    <span className="mt-0.5 text-lg text-[#1d4ed8]">•</span>
-                    <p className="text-sm">{advantage}</p>
-                  </div>
+                    <span className="h-2 w-2 rounded-full bg-[#1d4ed8]" />
+                    {advantage}
+                  </span>
                 ))}
               </div>
             </div>
-            <div className="lg:col-span-6 rounded-[28px] border border-blue-100 bg-white p-6 sm:p-8 shadow-[0_20px_60px_-30px_rgba(15,23,42,0.12)]">
+
+            <div className="space-y-9">
               <div className="flex items-center gap-3">
-                <div className="h-11 w-11 rounded-2xl bg-blue-50 text-[#1d4ed8] flex items-center justify-center">
+                <div className="h-10 w-10 rounded-2xl bg-blue-50 text-[#1d4ed8] flex items-center justify-center">
                   <GlobeIcon className="h-5 w-5" />
                 </div>
                 <div>
-                  <h2 className="text-2xl font-semibold">Meet guests where they message you</h2>
+                  <h3 className="text-lg font-semibold">Meet guests where they message you</h3>
                   <p className="text-sm text-slate-600">Multi-channel support without extra lift.</p>
                 </div>
               </div>
-              <div className="mt-6 grid gap-4 sm:grid-cols-3">
-                {channels.map((channel) => (
-                  <div key={channel.title} className="rounded-2xl border border-blue-100 bg-blue-50 p-4 shadow-sm">
-                    <div className="flex items-center justify-between text-xs text-slate-500">
-                      <span className="rounded-full bg-white px-3 py-1 text-[11px] font-semibold text-[#1d4ed8] shadow-sm">{channel.badge}</span>
-                      <span className="h-2 w-2 rounded-full bg-[#16a34a]" />
+              <div className="grid gap-3 sm:grid-cols-3">
+                {channels.map((channel) => {
+                  const Icon = channel.icon;
+                  return (
+                    <div
+                      key={channel.title}
+                      className="rounded-2xl border border-blue-100 bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+                    >
+                      <div className="flex items-center justify-between">
+                        <span className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-50 text-[#1d4ed8]">
+                          <Icon className="h-5 w-5" />
+                        </span>
+                        <span className="rounded-full bg-blue-50 px-3 py-1 text-[11px] font-semibold text-[#1d4ed8] shadow-sm">
+                          {channel.badge}
+                        </span>
+                      </div>
+                      <p className="mt-3 text-sm font-semibold text-[#0f172a]">{channel.title}</p>
+                      <p className="mt-2 text-xs text-slate-600">{channel.copy}</p>
+                      <span className="mt-3 inline-flex items-center gap-1 text-[11px] font-semibold text-[#16a34a]">
+                        <span className="h-2 w-2 rounded-full bg-[#16a34a]" />
+                        Live
+                      </span>
                     </div>
-                    <p className="mt-3 text-sm font-semibold text-[#0f172a]">{channel.title}</p>
-                    <p className="mt-2 text-xs text-slate-600">{channel.copy}</p>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
+
+            <style jsx>{`
+              @keyframes marqueeSlide {
+                0% {
+                  transform: translateX(0);
+                }
+                100% {
+                  transform: translateX(-50%);
+                }
+              }
+              .marquee-track {
+                width: max-content;
+                animation: marqueeSlide 26s linear infinite;
+              }
+            `}</style>
           </section>
 
           <section className="grid gap-6 lg:grid-cols-12 items-start">
@@ -461,7 +542,7 @@ export default function Home() {
                     <div className="mt-3 space-y-2">
                       {plan.highlights.map((item) => (
                         <div key={item} className="flex items-start gap-2 text-xs text-slate-700">
-                      <span className="text-[#1d4ed8]">•</span>
+                          <span className="text-[#1d4ed8]">•</span>
                           <span>{item}</span>
                         </div>
                       ))}
@@ -484,7 +565,7 @@ export default function Home() {
               {operations.map((item, idx) => (
                 <div
                   key={idx}
-                  className={`flex md:flex-col items-start gap-3 rounded-2xl border border-blue-100 px-4 py-3 bg-white`}
+                  className={`flex md:flex-col items-start gap-3 rounded-2xl border border-blue-50 px-4 py-3 bg-white`}
                 >
                   <div className="bg-[#e0f2fe] p-2 rounded-lg text-[#1d4ed8]">
                     {item.icon}
