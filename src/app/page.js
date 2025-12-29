@@ -221,7 +221,7 @@ export default function Home() {
     <div className="min-h-screen bg-white text-[#0f172a]">
       <div className="sticky top-0 z-40">
         <header className="absolute inset-x-0 top-0 bg-[#f8fafc]/95 backdrop-blur px-6 sm:px-10">
-          <div className="mx-auto flex w-full max-w-7xl items-center justify-between py-4">
+          <div className="mx-auto flex w-full max-w-6xl items-center justify-between py-4">
             <div className="flex items-center gap-3">
               <div className="h-10 w-10 rounded-xl bg-[#2563eb] flex items-center justify-center text-sm font-semibold text-white shadow-sm">
                 AI
@@ -252,7 +252,7 @@ export default function Home() {
 
       <main className="space-y-16">
         <section className="relative pt-16 pb-16 w-full px-6 sm:px-10 pt-8 min-h-[100dvh] lg:min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-[#e0f2fe] via-white to-[#e0fcef]">
-          <div className="mx-auto grid w-full max-w-7xl gap-12 lg:grid-cols-[1.1fr_0.9fr] items-center">
+          <div className="mx-auto grid w-full max-w-6xl gap-12 lg:grid-cols-[1.1fr_0.9fr] items-center">
             <div className="space-y-8">
               <div className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white px-4 py-2 text-xs font-semibold text-[#1d4ed8] shadow-sm">
                 Built for real restaurant operations
@@ -293,7 +293,7 @@ export default function Home() {
           </div>
         </section>
 
-        <div className="mx-auto max-w-6xl px-6 sm:px-10 space-y-16 pb-16">
+        <div className="mx-auto max-w-6xl px-6 md:px-0 space-y-16 pb-16">
           <section id="audience" className="pb-16 grid gap-6 lg:grid-cols-12">
             <div className="lg:col-span-12">
               <div className="flex flex-wrap">
