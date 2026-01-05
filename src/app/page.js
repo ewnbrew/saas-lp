@@ -3,7 +3,8 @@
 import { Airplay, AlertCircleIcon, ArrowRightLeftIcon, BeerIcon, CalendarCheckIcon, ChefHat, ChefHatIcon, CoffeeIcon, CreditCardIcon, icons, MapPinHouseIcon, MessageCircleIcon, PackageCheckIcon, PackageSearchIcon, RailSymbol, ScanTextIcon, ToggleRightIcon, UserRoundCogIcon, UtensilsIcon, WorkflowIcon } from "lucide-react";
 import Image from "next/image";
 import dynamic from "next/dynamic";
-import { FiBell, FiBookOpen, FiCalendar, FiGlobe, FiSend, FiShoppingBag } from "react-icons/fi";
+import { useState } from "react";
+import { FiBell, FiBookOpen, FiCalendar, FiGlobe, FiSend, FiShoppingBag, FiXCircle } from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
 
 const TargetIcon = ({ className = "h-5 w-5" }) => (
@@ -106,6 +107,8 @@ const ChartIcon = ({ className = "h-5 w-5" }) => (
 );
 
 export default function Home() {
+  const [selectedCardTitle, setSelectedCardTitle] = useState(null);
+
   const audiences = [
     { name: "Quick service & takeaway", icon: <PackageCheckIcon /> },
     { name: "Casual dining & cafés", icon: <CoffeeIcon /> },
@@ -147,12 +150,50 @@ export default function Home() {
   ];
 
   const featureMatrix = [
-    { title: "Menu Browsing", description: "Smart recommendations based on customer preferences.", icon: FiBookOpen },
-    { title: "Reservations", description: "Automated table requests and calendar management.", icon: FiCalendar },
-    { title: "Order Intake", description: "Seamless handoff for orders or secure payment links.", icon: FiShoppingBag },
-    { title: "Status Updates", description: "Real-time delivery and order tracking notifications.", icon: FiBell },
-    { title: "Global FAQs", description: "Instant answers for location, hours, promos, and policies.", icon: FiGlobe },
+    {
+      title: "Untuk siapa",
+      icon: FiBookOpen,
+      description:
+        "Restoran yang mengelola reservasi melalui WhatsApp, buku catatan/kertas, ponsel manajer, Google Calendar atau catatan sederhana.",
+    },
+    {
+      title: "Cara kerja",
+      icon: FiCalendar,
+      steps: [
+        "Klik WhatsApp",
+        "Asisten mengajukan beberapa pertanyaan",
+        "Langsung bisa dites",
+      ],
+    },
+    {
+      title: "Kontrol di tangan restoran",
+      icon: FiShoppingBag,
+      description:
+        "Restoran menentukan informasi apa yang dikumpulkan dan apakah reservasi dikonfirmasi otomatis atau tidak.",
+    },
+    {
+      title: "Apa yang BUKAN",
+      icon: FiXCircle,
+      points: [
+        "Tidak ada software untuk diinstal",
+        "Tidak ada integrasi POS",
+        "Tidak ada platform reservasi eksternal",
+      ],
+    },
+    {
+      title: "Kepercayaan lokal",
+      icon: FiGlobe,
+      points: [
+        "Berbasis di Bali",
+        "Bantuan lokal memungkinkan",
+        "Ada dukungan manusia di balik AI",
+      ],
+    },
   ];
+
+  const toggleSelectedCard = (title) => {
+    setSelectedCardTitle((prev) => (prev === title ? null : title));
+  };
 
   const advantages = [
     "Universal Compatibility",
@@ -208,11 +249,11 @@ export default function Home() {
   ];
 
   const navLinks = [
-    { label: "Audience", href: "#audience" },
-    { label: "Benefits", href: "#benefits" },
-    { label: "Features", href: "#features" },
-    { label: "Channels", href: "#channels" },
-    { label: "FAQ", href: "#operations" },
+    // { label: "Audience", href: "#audience" },
+    // { label: "Benefits", href: "#benefits" },
+    // { label: "Features", href: "#features" },
+    // { label: "Channels", href: "#channels" },
+    // { label: "FAQ", href: "#operations" },
   ];
 
   const StepTabs = dynamic(() => import("./components/step-tabs"), { ssr: false });
@@ -238,43 +279,39 @@ export default function Home() {
                 </a>
               ))}
             </div>
-            <div className="flex items-center gap-2">
-              <a
-                href="#pricing"
-                className="rounded-full border border-blue-200 bg-white px-5 py-2 text-xs sm:text-sm font-semibold text-[#1d4ed8] transition hover:-translate-y-0.5 shadow-sm"
-              >
-                Pricing & Plans
-              </a>
-            </div>
           </div>
         </header>
       </div>
 
       <main className="space-y-16">
         <section className="relative pt-16 pb-16 w-full px-6 sm:px-10 pt-8 min-h-[100dvh] lg:min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-[#e0f2fe] via-white to-[#e0fcef]">
-          <div className="mx-auto grid w-full max-w-6xl gap-12 lg:grid-cols-[1.1fr_0.9fr] items-center">
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 z-0 opacity-[0.18] [mask-image:radial-gradient(ellipse_at_left,rgba(0,0,0,1)_0%,rgba(0,0,0,0)_70%)] [webkit-mask-image:radial-gradient(ellipse_at_left,rgba(0,0,0,1)_0%,rgba(0,0,0,0)_70%)]"
+            style={{
+              backgroundImage:
+                "linear-gradient(to right, rgba(29,78,216,0.35) 1px, transparent 1px), linear-gradient(to bottom, rgba(29,78,216,0.35) 1px, transparent 1px)",
+              backgroundSize: "56px 56px",
+            }}
+          />
+          <div className="relative z-10 mx-auto grid w-full max-w-6xl gap-12 lg:grid-cols-[1.1fr_0.9fr] items-center">
             <div className="space-y-8">
               <div className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white px-4 py-2 text-xs font-semibold text-[#1d4ed8] shadow-sm">
                 Built for real restaurant operations
                 <span className="h-1.5 w-1.5 rounded-full bg-[#16a34a]" />
               </div>
               <div className="space-y-4">
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight">
-                  Automate orders, reservations, and customer support—24/7.
+                <h1 className="text-5xl sm:text-5xl lg:text-6xl font-semibold leading-tight">
+                  Booking Manager WhatsApp untuk restoran Anda — siap dalam hitungan menit.
                 </h1>
                 <p className="text-lg text-slate-700 max-w-2xl">
-                  An AI chatbot built for restaurants to handle bookings, menu questions, delivery
-                  inquiries, and payments across WhatsApp and web chat—so your team can focus on
-                  service.
+                  Tes langsung. Tanpa software. Tanpa integrasi.
                 </p>
               </div>
               <div className="flex flex-wrap items-center gap-3">
-                <button className="rounded-full bg-[#2563eb] px-6 py-3 text-sm sm:text-base font-semibold text-white shadow-[0_12px_32px_-16px_rgba(37,99,235,0.7)] hover:-translate-y-0.5 transition">
-                  Start Free – Go Live in Minutes
-                </button>
-                <button className="rounded-full border border-blue-200 bg-white px-6 py-3 text-sm sm:text-base font-semibold text-[#0f172a] hover:-translate-y-0.5 transition">
-                  See Restaurant Demo
-                </button>
+                <a href="#" className="flex items-center gap-2 rounded-full bg-[#2563eb] px-6 py-3 text-sm sm:text-base font-semibold text-white shadow-[0_12px_32px_-16px_rgba(37,99,235,0.7)] hover:-translate-y-0.5 transition">
+                  <FaWhatsapp size={23} /> Coba sekarang di WhatsApp
+                </a>
               </div>
             </div>
 
@@ -294,114 +331,9 @@ export default function Home() {
         </section>
 
         <div className="mx-auto max-w-6xl px-6 md:px-0 space-y-16 pb-16">
-          <section id="audience" className="pb-16 grid gap-6 lg:grid-cols-12">
-            <div className="lg:col-span-12">
-              <div className="flex flex-wrap">
-                <div>
-                  <h2 className="text-2xl font-semibold">Who this is for</h2>
-                  <p className="text-sm text-slate-600">
-                    Built to work seamlessly across various dining models.
-                  </p>
-                </div>
-              </div>
-
-              <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {audiences.map((item, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center gap-2 rounded-2xl border border-blue-50 bg-gradient-to-br from-white via-white to-blue-50/30 px-5 py-4 text-sm font-medium text-[#0f172a] transition hover:-translate-y-0.5 hover:shadow-md"
-                  >
-                    <div className="bg-[#e0f2fe] p-2 rounded-lg text-[#1d4ed8] border border-blue-50">
-                      {item.icon}
-                    </div>
-                    <span>{item.name}</span>
-                  </div>
-                ))}
-              </div>
-
-              <p className="mt-5 text-sm text-[#1d4ed8]">
-                One platform, tailored automatically to how your restaurant operates.
-              </p>
-            </div>
-          </section>
-
-
-          <section className="grid items-center gap-6 lg:grid-cols-12">
-            <div className="lg:col-span-6">
-              <div className="relative overflow-hidden rounded-[28px] bg-gradient-to-br from-[#1d4ed8] via-[#2563eb] to-[#1e40af] shadow-[0_25px_70px_-35px_rgba(37,99,235,0.7)]">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.18),transparent_35%),radial-gradient(circle_at_80%_0%,rgba(255,255,255,0.15),transparent_30%)]" />
-                <Image
-                  src="/assets/hero.png"
-                  alt="Guests chatting with the AI host"
-                  width={1200}
-                  height={900}
-                  className="h-full w-full object-cover opacity-90"
-                  priority
-                />
-                <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between rounded-2xl bg-white/85 px-4 py-3 text-sm font-semibold text-[#0f172a] backdrop-blur shadow-lg">
-                  <span className="flex items-center gap-2">
-                    <span className="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-blue-100 text-blue-600">24/7</span>
-                    Calm automation for busy services
-                  </span>
-                  <span className="text-xs font-semibold text-blue-700">WhatsApp + Web</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="lg:col-span-6 space-y-6">
-              <div className="flex items-center gap-3">
-                <div className="h-11 w-11 rounded-2xl bg-blue-50 text-[#1d4ed8] flex items-center justify-center">
-                  <AlertCircleIcon className="h-5 w-5" />
-                </div>
-                <div>
-                  <h2 className="text-2xl font-semibold">The problems restaurants face</h2>
-                  <p className="text-sm text-slate-600">Pinpointing the daily friction.</p>
-                </div>
-              </div>
-              <div className="space-y-3">
-                {painPoints.map((point, idx) => (
-                  <div
-                    key={point}
-                    className={`flex items-center gap-3 rounded-2xl border border-blue-100 px-4 py-3 text-slate-700 bg-white`}
-                  >
-                    <span className="text-lg">❌</span>
-                    <p className="text-sm font-semibold">{point}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          <section id="audience" className="pb-16 pt-16 grid gap-6 lg:grid-cols-12">
-            <div className="lg:col-span-12">
-              <div className="flex flex-wrap">
-                <div>
-                  <h2 className="text-2xl font-semibold">Your always-on digital host</h2>
-                  <p className="text-sm text-slate-600">
-                    Core benefits, tuned for hospitality.
-                  </p>
-                </div>
-              </div>
-
-              <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {benefits.map((item, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center gap-2 rounded-2xl border border-blue-50 bg-gradient-to-br from-white via-white to-blue-50/30 px-5 py-4 text-sm font-medium text-[#0f172a] transition hover:-translate-y-0.5 hover:shadow-md"
-                  >
-                    <div className="bg-[#e0f2fe] p-2 rounded-lg text-[#1d4ed8] border border-blue-50">
-                      {item.icon}
-                    </div>
-                    <span>{item.name}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-
           <section id="benefits" className="grid pb-16 pt-10 gap-6 lg:grid-cols-12 items-start">
             <div id="features" className="lg:col-span-12">
-              <div className="flex items-center gap-3">
+              <div className="flex justify-center text-center items-center gap-3">
                 <div>
                   <h2 className="text-2xl font-semibold">Feature automation matrix</h2>
                   <p className="text-sm text-slate-600">Automations mapped to guest journeys.</p>
@@ -410,188 +342,70 @@ export default function Home() {
               <div className="mt-6 grid gap-4 sm:grid-cols-3">
                 {featureMatrix.map((feature) => {
                   const Icon = feature.icon;
-                  return (
-                    <div key={feature.title} className="rounded-2xl border border-blue-50 p-8 shadow-sm bg-gradient-to-br from-blue-50 via-white to-blue-10]">
-                      <div className="flex flex-col gap-3">
-                        <span className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-50 text-[#1d4ed8]">
-                          <Icon className="h-5 w-5" />
-                        </span>
-                        <p className="text-base font-semibold text-[#0f172a]">{feature.title}</p>
-                      </div>
-                      <p className="mt-3 text-sm text-slate-600">{feature.description}</p>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          </section>
-
-          <section id="channels" className="space-y-6">
-            <div className="flex items-center gap-3">
-              <div className="h-11 w-11 rounded-2xl bg-blue-50 text-[#1d4ed8] flex items-center justify-center">
-                <AwardIcon className="h-5 w-5" />
-              </div>
-              <div>
-                <h2 className="text-2xl font-semibold">Why restaurants choose this</h2>
-                <p className="text-sm text-slate-600">Competitive advantages, on a smooth marquee.</p>
-              </div>
-            </div>
-
-            <div className="relative overflow-hidden rounded-[28px] px-4 py-5">
-              <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-white via-white/60 to-transparent" />
-              <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-white via-white/60 to-transparent" />
-              <div className="marquee-track flex gap-3">
-                {marqueeAdvantages.map((advantage, idx) => (
-                  <span
-                    key={`${advantage}-${idx}`}
-                    className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white px-4 py-2 text-sm font-semibold text-[#0f172a] shadow-sm"
-                  >
-                    <span className="h-2 w-2 rounded-full bg-[#1d4ed8]" />
-                    {advantage}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            <div className="space-y-9">
-              <div className="flex items-center gap-3">
-                <div className="h-10 w-10 rounded-2xl bg-blue-50 text-[#1d4ed8] flex items-center justify-center">
-                  <GlobeIcon className="h-5 w-5" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold">Meet guests where they message you</h3>
-                  <p className="text-sm text-slate-600">Multi-channel support without extra lift.</p>
-                </div>
-              </div>
-              <div className="grid gap-3 sm:grid-cols-3">
-                {channels.map((channel) => {
-                  const Icon = channel.icon;
+                  const isSelected = selectedCardTitle === feature.title;
                   return (
                     <div
-                      key={channel.title}
-                      className="rounded-2xl border border-blue-100 bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+                      key={feature.title}
+                      role="button"
+                      tabIndex={0}
+                      aria-pressed={isSelected}
+                      onClick={() => toggleSelectedCard(feature.title)}
+                      onKeyDown={(event) => {
+                        if (event.key === "Enter" || event.key === " ") {
+                          event.preventDefault();
+                          toggleSelectedCard(feature.title);
+                        }
+                      }}
+                      className={`cursor-pointer rounded-2xl border p-8 transition ${
+                        isSelected
+                          ? "border-blue-600 ring-blue-600"
+                          : "border-blue-50 hover:border-blue-200"
+                      }`}
                     >
-                      <div className="flex items-center justify-between">
-                        <span className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-50 text-[#1d4ed8]">
+                      <div className="flex flex-col gap-3">
+                        <span className="flex h-10 w-10 items-center justify-center rounded-xl text-slate-600 shadow">
                           <Icon className="h-5 w-5" />
                         </span>
-                        <span className="rounded-full bg-blue-50 px-3 py-1 text-[11px] font-semibold text-[#1d4ed8] shadow-sm">
-                          {channel.badge}
-                        </span>
+
+                        <p className="text-base font-semibold text-[#0f172a]">
+                          {feature.title}
+                        </p>
                       </div>
-                      <p className="mt-3 text-sm font-semibold text-[#0f172a]">{channel.title}</p>
-                      <p className="mt-2 text-xs text-slate-600">{channel.copy}</p>
-                      <span className="mt-3 inline-flex items-center gap-1 text-[11px] font-semibold text-[#16a34a]">
-                        <span className="h-2 w-2 rounded-full bg-[#16a34a]" />
-                        Live
-                      </span>
+
+                      {/* Description */}
+                      {feature.description && (
+                        <p className="mt-3 text-sm text-slate-600">
+                          {feature.description}
+                        </p>
+                      )}
+
+                      {/* Steps (numbered list) */}
+                      {feature.steps && (
+                        <ol className="mt-3 list-decimal space-y-1 pl-4 text-sm text-slate-600">
+                          {feature.steps.map((step, index) => (
+                            <li key={index}>{step}</li>
+                          ))}
+                        </ol>
+                      )}
+
+                      {/* Bullet points */}
+                      {feature.points && (
+                        <ul className="mt-3 list-disc space-y-1 pl-4 text-sm text-slate-600">
+                          {feature.points.map((point, index) => (
+                            <li key={index}>{point}</li>
+                          ))}
+                        </ul>
+                      )}
                     </div>
                   );
                 })}
               </div>
-            </div>
-
-            <style jsx>{`
-              @keyframes marqueeSlide {
-                0% {
-                  transform: translateX(0);
-                }
-                100% {
-                  transform: translateX(-50%);
-                }
-              }
-              .marquee-track {
-                width: max-content;
-                animation: marqueeSlide 26s linear infinite;
-              }
-            `}</style>
-          </section>
-
-          <section className="grid gap-6 lg:grid-cols-12 items-start">
-            <div className="lg:col-span-12 rounded-[28px] p-6 sm:p-8">
-              <div className="flex justify-center text-center items-center gap-3">
-                <div>
-                  <h2 className="text-2xl font-semibold">Implementation made simple</h2>
-                  <p className="text-sm text-slate-600">From connect to live in four steps.</p>
-                </div>
-              </div>
-              <StepTabs steps={steps} />
-            </div>
-          </section>
-
-          {/* <section>
-            <div
-              id="pricing"
-              className="rounded-[28px] border border-blue-100 bg-white p-6 sm:p-8 shadow-[0_20px_60px_-30px_rgba(15,23,42,0.12)] space-y-6"
-            >
-              <div className="flex items-center justify-center">
-                <div className="text-center">
-                  <h2 className="text-2xl font-semibold">Pricing & plans</h2>
-                  <p className="text-sm text-slate-600">Start small, upgrade as volume grows.</p>
-                </div>
-              </div>
-              <div className="grid gap-4 md:grid-cols-3">
-                {plans.map((plan) => (
-                  <div key={plan.name} className="rounded-2xl border border-blue-100 bg-white p-4 shadow-sm bg-gradient-to-br from-white via-white to-[#e0f2fe]">
-                    <p className="text-md font-bold text-[#1d4ed8]">{plan.name} Plan</p>
-                    <p className="text-xs text-slate-600">{plan.tagline}</p>
-                    <div className="mt-3 flex items-baseline gap-1">
-                      <span className="text-2xl font-semibold text-[#0f172a]">{plan.price}</span>
-                      <span className="text-xs text-slate-500">{plan.unit}</span>
-                    </div>
-                    <div className="mt-3 space-y-2">
-                      {plan.highlights.map((item) => (
-                        <div key={item} className="flex items-start gap-2 text-xs text-slate-700">
-                          <span className="text-[#1d4ed8]">•</span>
-                          <span>{item}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <p className="text-sm text-[#1d4ed8]">Upgrade anytime as your volume grows.</p>
-            </div>
-          </section> */}
-
-          <section id="operations">
-            <div className="flex items-center justify-center">
-              <div>
-                <h2 className="text-2xl font-semibold text-c">Operational philosophy</h2>
-                <p className="text-sm text-slate-600">Designed for operations, not demos.</p>
+              <div className="flex justify-center items-center gap-3 mt-10">
+                <a href="#" className="flex items-center gap-2 rounded-full bg-[#2563eb] px-6 py-3 text-sm sm:text-base font-semibold text-white shadow-[0_12px_32px_-16px_rgba(37,99,235,0.7)] hover:-translate-y-0.5 transition">
+                  <FaWhatsapp size={23} /> Coba sekarang di WhatsApp
+                </a>
               </div>
             </div>
-            <div className="mt-6 grid gap-3 sm:grid-cols-4">
-              {operations.map((item, idx) => (
-                <div
-                  key={idx}
-                  className={`flex md:flex-col items-start gap-3 rounded-2xl border border-blue-50 px-4 py-3 bg-white`}
-                >
-                  <div className="bg-[#e0f2fe] p-2 rounded-lg text-[#1d4ed8]">
-                    {item.icon}
-                  </div>
-                  <p className="text-sm font-bold">{item.text}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          <section className="rounded-[28px] border border-blue-100 bg-white p-8 sm:p-10 shadow-[0_24px_60px_-30px_rgba(37,99,235,0.18)] bg-gradient-to-br from-[#e0f2fe] via-white to-white">
-            <div className="text-center">
-              <div>
-                <h2 className="text-2xl sm:text-3xl font-semibold text-center">
-                  Turn every message into a reservation, order, or satisfied guest.
-                </h2>
-              </div>
-            </div>
-            <div className="mt-6 flex flex-wrap justify-center items-center">
-              <button className="rounded-full bg-[#2563eb] px-6 py-3 text-sm sm:text-base font-semibold text-white shadow-[0_12px_32px_-16px_rgba(37,99,235,0.7)] hover:-translate-y-0.5 transition">
-                Start Your Restaurant AI Today
-              </button>
-            </div>
-            <p className="mt-6 text-xs uppercase tracking-[0.24em] text-slate-500 text-center">
-              Built to match real-world restaurant workflows
-            </p>
           </section>
         </div>
       </main>

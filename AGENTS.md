@@ -1,181 +1,77 @@
-# Landing Page Content Specification: AI Chatbot for Restaurants
+# Update Development
 
-## 0. Tech Stack
- - **NextJS v15.5.9**
- - **Tailwind CSS v4**
- - **ShadCN UI**
+### 3. STRATEGI WEBSITE
 
-## 1. Hero Section
+Website memiliki SATU tujuan:
+Memicu percakapan WhatsApp.
 
-**Objective:** Capture immediate attention and offer a clear value proposition.
+Website tidak menjelaskan segalanya.
+Bot yang melakukannya.
 
--   **Headline:** Automate orders, reservations, and customer support—24/7.
-    
--   **Sub-headline:** An AI chatbot built for restaurants to handle bookings, menu questions, delivery inquiries, and payments across WhatsApp and web chat—so your team can focus on service.
-    
--   **Primary CTA:** `👉 Start Free – Go Live in Minutes`
-    
--   **Secondary CTA:** `▶️ See Restaurant Demo`
-    
+### 4. STRUKTUR WEBSITE
+- SATU halaman saja
+- Tidak ada halaman fitur
+- Tidak ada halaman harga
+- Tidak ada blog
+- Tidak ada FAQ
 
-----------
+**_Note:_ Satu landing page vertikal dengan dua tingkat pembacaan.**
 
-## 2. Target Audience (Segmentation)
+### 5. STRUKTUR LANDING PAGE
+LEVEL 1 – DI ATAS LIPATAN (ABOVE THE FOLD)
+Tujuan: klik WhatsApp
 
-**Who This Is For:** Built to work seamlessly across various dining models.
+Konten:
+- Satu headline kuat
+- Satu kalimat pendukung singkat
+- Satu tombol CTA WhatsApp
 
--   **Quick service & takeaway**
-    
--   **Casual dining & cafés**
-    
--   **Bars, lounges, and nightlife**
-    
--   **Cloud kitchens & delivery-only brands**
-    
--   **Fine dining & premium restaurants**
-    
--   **Multi-location restaurant groups**
-    
+Contoh:
+Booking Manager WhatsApp untuk restoran Anda — siap dalam hitungan menit.
+Tes langsung. Tanpa software. Tanpa integrasi.
 
-> **Note:** One platform, tailored automatically to how your restaurant operates.
+CTA: Coba sekarang di WhatsApp
 
-----------
+LEVEL 2 – SCROLL (UNTUK MEYAKINKAN)
 
-## 3. The Problems Restaurants Face
+#### Blok 1 – Untuk siapa
 
-**Pain Points:** Addressing the daily friction in restaurant management.
+Restoran yang mengelola reservasi melalui WhatsApp, buku catatan/kertas, ponsel manajer, Google Calendar atau catatan sederhana.
 
--   ❌ Missed messages during busy hours
-    
--   ❌ Repetitive menu, price, and hour questions
-    
--   ❌ Manual reservation and order handling
-    
--   ❌ Customer frustration from slow replies
-    
--   ❌ Staff overloaded with chat and calls
-    
+#### Blok 2 – Cara kerja
 
-----------
+1. Klik WhatsApp
+2. Asisten mengajukan beberapa pertanyaan
+3. Langsung bisa dites
 
-## 4. The Solution: Your Always-On Digital Host
+#### Blok 3 – Kontrol di tangan restoran
 
-**Core Benefits:**
+Restoran menentukan informasi apa yang dikumpulkan dan apakah reservasi dikonfirmasi otomatis atau tidak.
 
--   ✔️ **Answers** menu, price, and opening hour questions instantly
-    
--   ✔️ **Takes** reservations and booking requests
-    
--   ✔️ **Handles** order inquiries and delivery status
-    
--   ✔️ **Sends** payment links and confirmations
-    
--   ✔️ **Escalates** to staff only when needed
-    
+#### Blok 4 – Apa yang BUKAN
 
-----------
+- Tidak ada software untuk diinstal
+- Tidak ada integrasi POS
+- Tidak ada platform reservasi eksternal
 
-## 5. Feature Automation Matrix
+#### Blok 5 – Kepercayaan lokal
 
-**Feature**
+- Berbasis di Bali
+- Bantuan lokal memungkinkan
+- Ada dukungan manusia di balik AI
 
-**Description**
+CTA terakhir: Coba sekarang di WhatsApp
 
-**Menu Browsing**
+### 6. HAL YANG TIDAK BOLEH ADA DI WEBSITE
 
-Smart recommendations based on customer preferences.
+- Daftar fitur panjang
+- Tabel harga
+- Paket atau plan
+- Diagram teknis
+- Janji integrasi
+- Penjelasan teknis berlebihan
 
-**Reservations**
 
-Automated table requests and calendar management.
-
-**Order Intake**
-
-Seamless handoff for orders or secure payment links.
-
-**Status Updates**
-
-Real-time delivery and order tracking notifications.
-
-**Global FAQs**
-
-Instant answers for location, hours, promos, and policies.
-
-----------
-
-## 6. Competitive Advantages
-
-**Why Restaurants Choose This:**
-
--   **Universal Compatibility:** Works for any restaurant type.
-    
--   **Zero Friction:** No technical setup required.
-    
--   **Scalability:** Grows from a single outlet to national chains.
-    
--   **Brand Voice:** Consistent replies across all locations.
-    
--   **Operational Focus:** Designed specifically for restaurant workflows.
-    
-
-----------
-
-## 7. Multi-Channel Support
-
-**Meet customers where they already message you:**
-
-1.  **WhatsApp** (Primary)
-    
-2.  **Website Live Chat**
-    
-3.  **Instagram / Social Chat** (Optional)
-    
-
-----------
-
-## 8. Implementation (How It Works)
-
-1.  **Connect:** Link your WhatsApp account.
-    
-2.  **Upload:** Sync your menu, hours, and house rules.
-    
-3.  **Deploy:** AI goes live to interact with customers instantly.
-    
-4.  **Manage:** Monitor performance and refine via the dashboard.
-    
-
-----------
-
-## 9. Pricing & Plans
-
--   **Starter Plan:** Optimized for small restaurants.
-    
--   **Growth Plan:** Designed for busy, high-volume locations.
-    
--   **Pro Plan:** Built for large chains and multi-unit groups.
-    
-
-> **💡 Note:** Upgrade anytime as your volume grows.
-
-----------
-
-## 10. Operational Philosophy
-
-**Designed for Operations, Not Demos**
-
--   Handles peak-hour traffic without lag.
-    
--   Avoids over-promising to ensure realistic customer expectations.
-    
--   Uses a clear fallback to human staff when necessary.
-    
--   Matches real-world restaurant workflows, not just theoretical ones.
-    
-
-----------
-
-## 11. Final Call to Action
-
-**Turn every message into a reservation, order, or satisfied guest.**
-
-`👉 Start Your Restaurant AI Today`
+**_Note:_** 
+- level 1 (paling ditonjolkan)
+- Jadi kita hanya mempunyai 2 section Hero level 1 dan section 1nya level 2
