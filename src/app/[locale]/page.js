@@ -269,9 +269,9 @@ export default function Home() {
           <section id="benefits" className="grid pb-16 pt-10 gap-6 lg:grid-cols-12 items-start">
             <div id="features" className="lg:col-span-12">
 	              <div data-reveal className="reveal flex justify-center text-center items-center gap-3">
-                <div>
-                  <h2 className="text-4xl font-semibold">Feature automation matrix</h2>
-                  <p className="text-lg text-slate-600">Automations mapped to guest journeys.</p>
+                <div className="mb-5">
+                  <h2 className="text-4xl font-semibold">{t("section-second.title")}</h2>
+                  {/* <p className="text-lg text-slate-600">{t("section-second.sub-title")}</p> */}
                 </div>
               </div>
 	              <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
