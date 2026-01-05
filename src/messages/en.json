@@ -1,0 +1,46 @@
+{
+  "hero": {
+    "tagline": "WhatsApp Booking Manager for your restaurant — ready in minutes.",
+    "subtagline": "Test instantly. No software. No integrations.",
+    "cta": "Try now on WhatsApp"
+  },
+  "section-second": {
+    "title": "Feature automation matrix",
+    "sub-title": "Automations mapped to guest journeys.",
+    "cta": "Try now on WhatsApp",
+    "points": {
+      "first": {
+        "title": "Who it’s for",
+        "description": "Restaurants that manage reservations via WhatsApp, notebooks/paper, a manager’s phone, Google Calendar, or simple notes."
+      },
+      "second": {
+        "title": "How it works",
+        "key-point": {
+          "one": "Click WhatsApp",
+          "second": "The assistant asks a few questions",
+          "third": "Ready to test immediately"
+        }
+      },
+      "third": {
+        "title": "Control stays with the restaurant",
+        "description": "The restaurant decides what information is collected and whether reservations are confirmed automatically or not."
+      },
+      "fourth": {
+        "title": "What it is NOT",
+        "key-point": {
+          "one": "No software to install",
+          "second": "No POS integrations",
+          "third": "No external reservation platform"
+        }
+      },
+      "fifth": {
+        "title": "Local trust",
+        "key-point": {
+          "one": "Based in Bali",
+          "second": "Local support available",
+          "third": "Human support behind the AI"
+        }
+      }
+    }
+  }
+}

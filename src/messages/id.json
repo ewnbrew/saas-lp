@@ -1,0 +1,46 @@
+{
+  "hero": {
+    "tagline": "Booking Manager WhatsApp untuk restoran Anda — siap dalam hitungan menit.",
+    "subtagline": "Tes langsung. Tanpa software. Tanpa integrasi.",
+    "cta": "Coba sekarang di WhatsApp"
+  },
+  "section-second": {
+    "title": "Feature automation matrix",
+    "sub-title": "Automations mapped to guest journeys.",
+    "cta": "Coba sekarang di WhatsApp",
+    "points": {
+      "first": {
+        "title": "Untuk siapa",
+        "description": "Restoran yang mengelola reservasi melalui WhatsApp, buku catatan/kertas, ponsel manajer, Google Calendar atau catatan sederhana."
+      },
+      "second": {
+        "title": "Cara kerja",
+        "key-point": {
+          "one": "Klik WhatsApp",
+          "second": "Asisten mengajukan beberapa pertanyaan",
+          "third": "Langsung bisa dites"
+        }
+      },
+      "third": {
+        "title": "Kontrol di tangan restoran",
+        "description": "Restoran menentukan informasi apa yang dikumpulkan dan apakah reservasi dikonfirmasi otomatis atau tidak."
+      },
+      "fourth": {
+        "title": "Apa yang BUKAN",
+        "key-point": {
+          "one": "Tidak ada software untuk diinstal",
+          "second": "Tidak ada integrasi POS",
+          "third": "Tidak ada platform reservasi eksternal"
+        }
+      },
+      "fifth": {
+        "title": "Kepercayaan lokal",
+        "key-point": {
+          "one": "Berbasis di Bali",
+          "second": "Bantuan lokal memungkinkan",
+          "third": "Ada dukungan manusia di balik AI"
+        }
+      }
+    }
+  }
+}

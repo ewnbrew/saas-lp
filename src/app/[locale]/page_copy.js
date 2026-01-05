@@ -215,7 +215,7 @@ export default function Home() {
     { label: "FAQ", href: "#operations" },
   ];
 
-  const StepTabs = dynamic(() => import("./components/step-tabs"), { ssr: false });
+  const StepTabs = dynamic(() => import("../components/step-tabs"), { ssr: false });
 
   return (
     <div className="min-h-screen bg-white text-[#0f172a]">
