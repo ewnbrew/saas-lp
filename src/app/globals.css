@@ -32,10 +32,7 @@ body {
     opacity: 0;
     transform: translateY(14px);
     filter: blur(2px);
-    transition:
-      opacity 600ms ease,
-      transform 600ms ease,
-      filter 600ms ease;
+    transition: opacity 600ms ease, transform 600ms ease, filter 600ms ease;
     will-change: opacity, transform, filter;
   }
 

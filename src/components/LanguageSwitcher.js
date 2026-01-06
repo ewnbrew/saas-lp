@@ -33,7 +33,7 @@ export default function LanguageSwitcher({ className = "" }) {
             className={[
               "rounded-full px-2.5 py-1 transition",
               isActive
-                ? "bg-[#2563eb] text-white shadow-[0_10px_25px_-15px_rgba(37,99,235,0.9)]"
+                ? "bg-[#1daa61] text-white shadow-[0_10px_25px_-15px_rgba(37,99,235,0.9)]"
                 : "hover:bg-slate-100 hover:text-slate-900",
             ].join(" ")}
           >
@@ -44,4 +44,3 @@ export default function LanguageSwitcher({ className = "" }) {
     </div>
   );
 }
-
