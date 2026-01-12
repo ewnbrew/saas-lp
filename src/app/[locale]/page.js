@@ -15,6 +15,7 @@ import {
   MessageCircleIcon,
   PackageCheckIcon,
   PackageSearchIcon,
+  PanelLeftIcon,
   RailSymbol,
   ScanTextIcon,
   ToggleRightIcon,
@@ -226,6 +227,7 @@ const ChartIcon = ({ className = "h-5 w-5" }) => (
 export default function Home() {
   const t = useTranslations();
   const [selectedCardTitle, setSelectedCardTitle] = useState(null);
+  const [openFaqIndex, setOpenFaqIndex] = useState(null);
 
   useEffect(() => {
     const elements = Array.from(document.querySelectorAll("[data-reveal]"));
@@ -255,7 +257,11 @@ export default function Home() {
     {
       title: t("section-second.points.first.title"),
       icon: FiBookOpen,
-      description: t("section-second.points.first.description"),
+      steps: [
+        t("section-second.points.first.key-point.one"),
+        t("section-second.points.first.key-point.second"),
+        t("section-second.points.first.key-point.third"),
+      ]
     },
     {
       title: t("section-second.points.second.title"),
@@ -269,7 +275,11 @@ export default function Home() {
     {
       title: t("section-second.points.third.title"),
       icon: FiShoppingBag,
-      description: t("section-second.points.third.description"),
+      steps: [
+        t("section-second.points.third.key-point.one"),
+        t("section-second.points.third.key-point.second"),
+        t("section-second.points.third.key-point.third"),
+      ],
     },
     {
       title: t("section-second.points.fourth.title"),
@@ -291,8 +301,78 @@ export default function Home() {
     },
   ];
 
+  const benefits = [
+    {
+      title: t("benefits.points.first.title"),
+      description: t("benefits.points.first.description"),
+      icon: FiBell,
+    },
+    {
+      title: t("benefits.points.second.title"),
+      description: t("benefits.points.second.description"),
+      icon: FiCalendar,
+    },
+    {
+      title: t("benefits.points.third.title"),
+      description: t("benefits.points.third.description"),
+      icon: FaCheckCircle,
+    },
+    {
+      title: t("benefits.points.fourth.title"),
+      description: t("benefits.points.fourth.description"),
+      icon: PanelLeftIcon,
+    }
+  ];
+
+  const accordionFaqs = [
+    {
+      question: t("faq.questions.one"),
+      answer:
+        "It follows the confirmation mode you choose (manual, auto under rules, or mixed), so it won't confirm when a slot should stay blocked.",
+    },
+    {
+      question: t("faq.questions.two"),
+      answer:
+        "Yes—pick manual confirm and every request waits for your approval before guests get a yes.",
+    },
+    {
+      question: t("faq.questions.three"),
+      answer:
+        "Setup takes a few minutes on WhatsApp: answer the hours, rules, and language prompts and you can test immediately.",
+    },
+    {
+      question: t("faq.questions.four"),
+      answer:
+        "Choose the languages during setup; the assistant can greet and collect details in multiple languages at once.",
+    },
+    {
+      question: t("faq.questions.five"),
+      answer:
+        "You can pause or switch off the assistant anytime and resume when you're ready.",
+    },
+    {
+      question: t("faq.questions.six"),
+      answer:
+        "It runs on WhatsApp, so managers can review clean booking summaries from laptop or phone without extra installs, following the calendar rules you set.",
+    },
+    {
+      question: t("faq.questions.seven"),
+      answer:
+        "Optional reconfirmation pings guests before service; confirmed guests stay marked and unclear cases can escalate to a human.",
+    },
+    {
+      question: t("faq.questions.eight"),
+      answer:
+        "If a guest cancels, the assistant notes it so you can free the slot or follow up right away.",
+    },
+  ];
+
   const toggleSelectedCard = (title) => {
     setSelectedCardTitle((prev) => (prev === title ? null : title));
+  };
+
+  const toggleFaqItem = (index) => {
+    setOpenFaqIndex((prev) => (prev === index ? null : index));
   };
 
   const navLinks = [
@@ -314,9 +394,12 @@ export default function Home() {
               </div>
               <div>
                 <p className="text-xs sm:text-sm uppercase tracking-wider text-[#1daa61] font-semibold">
-                  Restaurant Chatbot
+                  {t("header.line-one")}
                 </p>
-                <p className="text-sm font-semibold">Always-on digital host</p>
+                <p className="text-xs sm:text-sm uppercase tracking-wider text-[#1daa61] font-semibold">
+                  {t("header.line-second")}
+                </p>
+                <p className="text-sm font-semibold">{t("header.line-third")}</p>
               </div>
             </div>
             <div className="flex items-center gap-4">
@@ -356,7 +439,7 @@ export default function Home() {
               <div className="w-fit flex items-center mx-auto sm:mx-0 gap-2 rounded-full border border-green-100 bg-white px-4 py-2 shadow-sm">
                 <FaRobot className="size-4 text-[#1daa61]" />
                 <p className="text-xs font-semibold">
-                  Built For Real Restaurant Operations
+                  {t("hero.headline")}
                 </p>
                 {/* <span className="h-1.5 w-1.5 rounded-full bg-[#16a34a]" /> */}
               </div>
@@ -367,6 +450,20 @@ export default function Home() {
                 <p className="text-lg text-slate-700 max-w-2xl text-center sm:text-left">
                   {t("hero.subtagline")}
                 </p>
+                <ul className="mx-auto sm:mx-0 flex flex-col gap-2 text-base text-slate-700 max-w-2xl">
+                  <li className="flex items-start gap-2">
+                    <FaCheckCircle className="mt-1 text-[#1daa61]" />
+                    <span>{t("hero.bullet.one")}</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <FaCheckCircle className="mt-1 text-[#1daa61]" />
+                    <span>{t("hero.bullet.two")}</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <FaCheckCircle className="mt-1 text-[#1daa61]" />
+                    <span>{t("hero.bullet.three")}</span>
+                  </li>
+                </ul>
               </div>
               <div className="flex items-center gap-3 justify-center sm:justify-start">
                 <a
@@ -376,6 +473,9 @@ export default function Home() {
                   <FaWhatsapp size={23} /> {t("hero.cta")}
                 </a>
               </div>
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#1daa61] text-center sm:text-left">
+                {t("hero.microline")}
+              </p>
             </div>
 
             <div className="relative hidden md:block">
@@ -393,10 +493,92 @@ export default function Home() {
           </div>
         </section>
 
+        <div className="mx-auto max-w-6xl space-y-16">
+          <section
+            id="service"
+            className="grid pt-10 px-6 xl:px-0 gap-8 lg:grid-cols-3 items-start"
+          >
+            <div id="service" className="lg:col-span-12">
+              <div
+                data-reveal
+                className="reveal flex justify-center text-center items-center gap-3"
+              >
+                <div className="mb-5">
+                  <h2 className="text-4xl font-semibold">
+                    {t("problem.title")}
+                  </h2>
+                </div>
+              </div>
+
+              <div
+                data-reveal
+                className={`flex justify-center items-center reveal group isolate relative overflow-hidden transition will-change-transform focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-600/40 before:pointer-events-none before:absolute before:-top-28 before:-right-24 before:h-56 before:w-56 before:rounded-full before:bg-gradient-to-br before:from-[#2563eb]/20 before:via-[#16a34a]/10 before:to-transparent before:blur-2xl before:opacity-0 before:transition before:duration-500 group-hover:before:opacity-100 after:pointer-events-none after:absolute after:inset-0 after:bg-[linear-gradient(to_right,rgba(37,99,235,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(37,99,235,0.08)_1px,transparent_1px)] after:bg-[size:28px_28px] after:opacity-0 after:transition after:duration-500 group-hover:after:opacity-100`}
+                style={{ transitionDelay: `${60}ms` }}
+              >
+                <span className="text-center text-xl font-normal">{t("problem.text")}</span>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div className="mx-auto max-w-6xl space-y-16">
+          <section
+            id="third"
+            className="grid pt-12 px-6 lg:px-8 xl:px-0 gap-10 lg:grid-cols-3 items-start"
+          >
+            <div id="service" className="lg:col-span-12">
+              <div
+                data-reveal
+                className="reveal flex justify-center text-center items-center gap-3"
+              >
+                <div className="mb-5">
+                  <h2 className="text-4xl font-semibold">
+                    {t("benefits.title")}
+                  </h2>
+                </div>
+              </div>
+
+              <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+                {benefits.map((feature, index) => {
+                  const Icon = feature.icon;
+                  const isSelected = selectedCardTitle === feature.title;
+                  return (
+                    <div
+                      key={feature.title}
+                      data-reveal
+                      className={`reveal group isolate relative overflow-hidden cursor-pointer rounded-2xl border bg-gradient-to-br from-white via-white to-green-50 p-6 shadow-sm backdrop-blur transition will-change-transform hover:-translate-y-1 hover:shadow-xl hover:shadow-green-200/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-600/40 ${isSelected
+                        ? "border-green-600 ring-2 ring-green-600/25"
+                        : "border-green-100/80 hover:border-green-200/90"
+                        } before:pointer-events-none before:absolute before:-top-24 before:-right-20 before:h-48 before:w-48 before:rounded-full before:bg-gradient-to-br before:from-[#2563eb]/20 before:via-[#16a34a]/10 before:to-transparent before:blur-2xl before:opacity-0 before:transition before:duration-500 group-hover:before:opacity-100 after:pointer-events-none after:absolute after:inset-0 after:bg-[linear-gradient(to_right,rgba(37,99,235,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(37,99,235,0.08)_1px,transparent_1px)] after:bg-[size:28px_28px] after:opacity-0 after:transition after:duration-500 group-hover:after:opacity-100`}
+                      style={{ transitionDelay: `${index * 60}ms` }}
+                    >
+                      <div className="flex h-full items-start gap-4">
+                        {Icon && (
+                          <span className="mt-1 flex h-12 w-12 items-center justify-center rounded-xl border border-green-100 bg-green-50 text-[#1daa61] shadow-inner shadow-green-100/40">
+                            <Icon className="h-6 w-6" />
+                          </span>
+                        )}
+                        <div className="flex flex-col text-left space-y-2">
+                          <p className="text-lg font-semibold text-[#0f172a]">
+                            {feature.title}
+                          </p>
+                          <p className="text-base text-slate-600 leading-relaxed">
+                            {feature.description}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </section>
+        </div>
+
         <div className="mx-auto max-w-6xl space-y-16 pb-16">
           <section
             id="benefits"
-            className="grid pt-10 px-6 xl:px-0 gap-6 lg:grid-cols-3 items-start"
+            className="grid pt-10 px-6 md:px-0 gap-6 lg:grid-cols-3 items-start"
           >
             <div id="features" className="lg:col-span-12">
               <div
@@ -418,11 +600,10 @@ export default function Home() {
                     <div
                       key={feature.title}
                       data-reveal
-                      className={`reveal group isolate relative overflow-hidden cursor-pointer rounded-2xl border bg-gradient-to-br from-white via-white to-green-50 p-8 shadow-sm backdrop-blur transition will-change-transform hover:-translate-y-1 hover:shadow-xl hover:shadow-green-200/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-600/40 ${
-                        isSelected
-                          ? "border-green-600 ring-2 ring-green-600/25"
-                          : "border-green-100/80 hover:border-green-200/90"
-                      } before:pointer-events-none before:absolute before:-top-28 before:-right-24 before:h-56 before:w-56 before:rounded-full before:bg-gradient-to-br before:from-[#2563eb]/20 before:via-[#16a34a]/10 before:to-transparent before:blur-2xl before:opacity-0 before:transition before:duration-500 group-hover:before:opacity-100 after:pointer-events-none after:absolute after:inset-0 after:bg-[linear-gradient(to_right,rgba(37,99,235,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(37,99,235,0.08)_1px,transparent_1px)] after:bg-[size:28px_28px] after:opacity-0 after:transition after:duration-500 group-hover:after:opacity-100`}
+                      className={`reveal group isolate relative overflow-hidden cursor-pointer rounded-2xl border bg-gradient-to-br from-white via-white to-green-50 p-8 shadow-sm backdrop-blur transition will-change-transform hover:-translate-y-1 hover:shadow-xl hover:shadow-green-200/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-600/40 ${isSelected
+                        ? "border-green-600 ring-2 ring-green-600/25"
+                        : "border-green-100/80 hover:border-green-200/90"
+                        } before:pointer-events-none before:absolute before:-top-28 before:-right-24 before:h-56 before:w-56 before:rounded-full before:bg-gradient-to-br before:from-[#2563eb]/20 before:via-[#16a34a]/10 before:to-transparent before:blur-2xl before:opacity-0 before:transition before:duration-500 group-hover:before:opacity-100 after:pointer-events-none after:absolute after:inset-0 after:bg-[linear-gradient(to_right,rgba(37,99,235,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(37,99,235,0.08)_1px,transparent_1px)] after:bg-[size:28px_28px] after:opacity-0 after:transition after:duration-500 group-hover:after:opacity-100`}
                       style={{ transitionDelay: `${index * 60}ms` }}
                     >
                       <div className="flex flex-col gap-3">
@@ -473,6 +654,113 @@ export default function Home() {
               </div>
             </div>
           </section>
+        </div>
+
+        <div className="mx-auto max-w-4xl space-y-10 pb-24">
+          <section
+            id="faq-accordion"
+            className="grid pt-4 px-6 xl:px-0 gap-6 lg:grid-cols-3 items-start"
+          >
+            <div className="lg:col-span-12">
+              <div
+                data-reveal
+                className="reveal flex flex-col items-center gap-3 text-center"
+              >
+                <h2 className="text-4xl font-semibold">{t("faq.title")}</h2>
+              </div>
+
+              <div className="mt-6 overflow-hidden rounded-3xl border border-green-100 bg-white shadow-sm shadow-green-100/30">
+                {accordionFaqs.map((item, index) => {
+                  const isOpen = openFaqIndex === index;
+                  return (
+                    <div
+                      key={item.question}
+                      className={`border-b border-green-50 last:border-b-0 ${isOpen ? "bg-green-50/40" : "bg-white"
+                        }`}
+                    >
+                      <button
+                        type="button"
+                        onClick={() => toggleFaqItem(index)}
+                        aria-expanded={isOpen}
+                        className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left sm:px-6 sm:py-5"
+                      >
+                        <div className="flex items-center gap-3">
+                          <p className="text-lg font-semibold text-[#0f172a]">
+                            {item.question}
+                          </p>
+                        </div>
+                        <span
+                          className={`flex h-9 w-9 items-center justify-center rounded-full border border-green-100 text-base font-bold text-[#1daa61] transition-transform duration-200 ${isOpen ? "rotate-45" : ""
+                            }`}
+                        >
+                          +
+                        </span>
+                      </button>
+                      <div
+                        aria-hidden={!isOpen}
+                        className={`grid overflow-hidden transition-[grid-template-rows,opacity] duration-300 ease-in-out ${isOpen
+                          ? "grid-rows-[1fr] opacity-100"
+                          : "grid-rows-[0fr] opacity-0 h-0"
+                          }`}
+                      >
+                        <div className="px-5 pb-4 pt-0 text-base text-slate-600 leading-relaxed sm:px-6">
+                          {item.answer}
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div className="mx-auto max-w-6xl space-y-16 px-6 sm:px-10 pb-16">
+          <section
+            id="cta-ready"
+            className="grid pt-10 px-0 xl:px-0 gap-8 items-center"
+          >
+            <div className="lg:col-span-12">
+              <div
+                data-reveal
+                className="reveal flex flex-col items-center gap-4 text-center"
+              >
+                <h3 className="text-3xl sm:text-4xl font-semibold text-[#0f172a] leading-tight">
+                  {t("final-cta.title")}
+                </h3>
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#1daa61]">
+                  {t("final-cta.microline")}
+                </p>
+              </div>
+              <div
+                data-reveal
+                className="reveal mt-4 flex w-full flex-col items-center gap-3 sm:flex-row sm:justify-center"
+                style={{ transitionDelay: "120ms" }}
+              >
+                <a
+                  href="#"
+                  className="flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-[#1daa61] px-6 py-3 text-base sm:text-lg font-semibold text-white shadow-[0_12px_32px_-16px_rgba(37,99,235,0.7)] hover:-translate-y-0.5 transition"
+                >
+                  <FaWhatsapp size={23} /> {t("final-cta.cta")}
+                </a>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div className="fixed bottom-6 right-5 z-40">
+          <div className="group relative">
+            <a
+              href="#"
+              className="flex items-center gap-2 rounded-full bg-[#1daa61] p-3 text-sm sm:text-base font-semibold text-white shadow-lg shadow-green-200 hover:-translate-y-0.5 transition"
+            >
+              <FaWhatsapp size={24} />
+              <span className="sr-only">{t("floating.cta")}</span>
+            </a>
+            <span className="pointer-events-none absolute right-full mr-3 top-1/2 -translate-y-1/2 whitespace-nowrap rounded-full bg-slate-900 px-3 py-2 text-xs font-semibold text-white opacity-0 scale-95 transition duration-200 group-hover:opacity-100 group-hover:scale-100">
+              {t("floating.title")}
+            </span>
+          </div>
         </div>
       </main>
     </div>

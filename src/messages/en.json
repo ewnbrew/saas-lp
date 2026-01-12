@@ -1,17 +1,37 @@
 {
+  "header": {
+    "line-one": "WhatsApp Booking Manager",
+    "line-second": "For Restaurants",
+    "line-third": "Always-on digital host"
+  },
   "hero": {
-    "tagline": "WhatsApp Booking Manager for your restaurant — ready in minutes.",
-    "subtagline": "Test instantly. No software. No integrations.",
-    "cta": "Try now on WhatsApp"
+    "headline": " Built For Real Restaurant Operations",
+    "tagline": "Stop Missing Reservations on WhatsApp.",
+    "subtagline": "Instant replies + the right questions + a clean booking summary sent to your manager.",
+    "cta": "Start Free Trial on WhatsApp",
+    "bullet": {
+      "one": "Works with your current process (WhatsApp / notebook / manager phone)",
+      "two": "You stay in control (manual confirm or auto-confirm under your rules)",
+      "three": "Multilingual for tourists + locals"
+    },
+    "microline": "Live in minutes. No app. No training."
+  },
+  "problem": {
+    "title": "The reality during service",
+    "text": "Messages arrive when staff are busy. Details get missed. Replies come late. Bookings get lost"
   },
   "section-second": {
     "title": " How It Works for Restaurants",
     "sub-title": "",
-    "cta": "Try now on WhatsApp",
+    "cta": "Start Free Trial on WhatsApp",
     "points": {
       "first": {
         "title": "Who it’s for",
-        "description": "Restaurants that manage reservations via WhatsApp, notebooks/paper, a manager’s phone, Google Calendar, or simple notes."
+        "key-point": {
+          "one": "Start free trial on WhatsApp",
+          "second": "Answer a few setup questions (hours, rules, languages, confirmation mode)",
+          "third": "Test immediately"
+        }
       },
       "second": {
         "title": "How it works",
@@ -22,8 +42,12 @@
         }
       },
       "third": {
-        "title": "Control stays with the restaurant",
-        "description": "The restaurant decides what information is collected and whether reservations are confirmed automatically or not."
+        "title": "You decide what gets confirmed",
+        "key-point": {
+          "one": "Manual confirm (you approve every booking)",
+          "second": "Auto-confirm under your rules",
+          "third": "Mixed mode (busy hours = manual) Line: If anything is unclear, it escalates to a human."
+        }
       },
       "fourth": {
         "title": "What it is NOT",
@@ -38,9 +62,53 @@
         "key-point": {
           "one": "Based in Bali",
           "second": "Local support available",
-          "third": "Human support behind the AI"
+          "third": "Human backup available"
         }
       }
     }
+  },
+  "benefits": {
+    "title": "What you get",
+    "points": {
+      "first": {
+        "title": "Capture more bookings",
+        "description": "Instant reply"
+      },
+      "second": {
+        "title": "Cleaner reservations",
+        "description": "Standard questions"
+      },
+      "third": {
+        "title": "Less staff stress",
+        "description": "no back-and-forth"
+      },
+      "fourth": {
+        "title": "Fewer no-shows",
+        "description": "Optional reconfirmation"
+      }
+    }
+  },
+  "faq": {
+    "title": "FAQ",
+    "subtitle": "Straight answers so you can see how it works before you click WhatsApp.",
+    "questions": {
+      "one": "Will it overbook?",
+      "two": "Can I approve every booking?",
+      "three": "How fast is setup?",
+      "four": "What languages does it support?",
+      "five": "Can I turn it off anytime?",
+      "six": "Does it work with my notebook / manager phone / calendar?",
+      "seven": "How does reconfirmation work?",
+      "eight": "What happens if a guest cancels?"
+    }
+  },
+  "final-cta": {
+    "title": "Ready to stop losing bookings?",
+    "microline": "Live in minutes. Cancel anytime.",
+    "cta": "Start Free Trial on WhatsApp"
+  },
+  "floating": {
+    "cta": "Start Free Trial on WhatsApp",
+    "title": "Start Free Trial on WhatsApp"
   }
 }

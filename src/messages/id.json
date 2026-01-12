@@ -1,34 +1,58 @@
 {
+  "header": {
+    "line-one": "Manajer Booking WhatsApp",
+    "line-second": "Untuk Restoran",
+    "line-third": "Host digital selalu aktif"
+  },
   "hero": {
-    "tagline": "Booking Manager WhatsApp untuk restoran Anda — siap dalam hitungan menit.",
-    "subtagline": "Tes langsung. Tanpa software. Tanpa integrasi.",
-    "cta": "Coba sekarang di WhatsApp"
+    "headline": "Dibuat untuk Operasional Restoran Sebenarnya",
+    "tagline": "Berhenti Kehilangan Reservasi di WhatsApp.",
+    "subtagline": "Balasan instan + pertanyaan tepat + ringkasan booking rapi dikirim ke manajer.",
+    "cta": "Mulai Uji Coba Gratis di WhatsApp",
+    "bullet": {
+      "one": "Bekerja dengan proses Anda sekarang (WhatsApp / buku catatan / ponsel manajer)",
+      "two": "Anda tetap mengontrol (konfirmasi manual atau otomatis sesuai aturan Anda)",
+      "three": "Multibahasa untuk turis dan lokal"
+    },
+    "microline": "Aktif dalam hitungan menit. Tanpa aplikasi. Tanpa pelatihan."
+  },
+  "problem": {
+    "title": "Realita saat jam layanan",
+    "text": "Pesan datang saat staf sibuk. Detail terlewat. Balasan terlambat. Booking hilang."
   },
   "section-second": {
-    "title": "Cara Kerja Sistem Reservasi AI",
-    "sub-title": "Automations mapped to guest journeys.",
-    "cta": "Coba sekarang di WhatsApp",
+    "title": "Cara Kerja untuk Restoran",
+    "sub-title": "",
+    "cta": "Mulai Uji Coba Gratis di WhatsApp",
     "points": {
       "first": {
         "title": "Untuk siapa",
-        "description": "Restoran yang mengelola reservasi melalui WhatsApp, buku catatan/kertas, ponsel manajer, Google Calendar atau catatan sederhana."
+        "key-point": {
+          "one": "Mulai uji coba gratis di WhatsApp",
+          "second": "Jawab beberapa pertanyaan setup (jam, aturan, bahasa, mode konfirmasi)",
+          "third": "Langsung bisa dites"
+        }
       },
       "second": {
         "title": "Cara kerja",
         "key-point": {
           "one": "Klik WhatsApp",
           "second": "Asisten mengajukan beberapa pertanyaan",
-          "third": "Langsung bisa dites"
+          "third": "Siap dites langsung"
         }
       },
       "third": {
-        "title": "Kontrol di tangan restoran",
-        "description": "Restoran menentukan informasi apa yang dikumpulkan dan apakah reservasi dikonfirmasi otomatis atau tidak."
+        "title": "Anda yang menentukan apa yang dikonfirmasi",
+        "key-point": {
+          "one": "Konfirmasi manual (Anda menyetujui setiap booking)",
+          "second": "Konfirmasi otomatis sesuai aturan Anda",
+          "third": "Mode campuran (jam sibuk = manual). Jika ada yang tidak jelas, diteruskan ke manusia."
+        }
       },
       "fourth": {
         "title": "Apa yang BUKAN",
         "key-point": {
-          "one": "Tidak ada software untuk diinstal",
+          "one": "Tidak ada software yang perlu diinstal",
           "second": "Tidak ada integrasi POS",
           "third": "Tidak ada platform reservasi eksternal"
         }
@@ -37,10 +61,54 @@
         "title": "Kepercayaan lokal",
         "key-point": {
           "one": "Berbasis di Bali",
-          "second": "Bantuan lokal memungkinkan",
-          "third": "Ada dukungan manusia di balik AI"
+          "second": "Dukungan lokal tersedia",
+          "third": "Cadangan manusia tersedia"
         }
       }
     }
+  },
+  "benefits": {
+    "title": "Apa yang Anda dapatkan",
+    "points": {
+      "first": {
+        "title": "Tangkap lebih banyak booking",
+        "description": "Balasan instan"
+      },
+      "second": {
+        "title": "Reservasi lebih rapi",
+        "description": "Pertanyaan standar"
+      },
+      "third": {
+        "title": "Stres staf berkurang",
+        "description": "tanpa bolak-balik"
+      },
+      "fourth": {
+        "title": "Lebih sedikit no-show",
+        "description": "Rekonfirmasi opsional"
+      }
+    }
+  },
+  "faq": {
+    "title": "FAQ",
+    "subtitle": "Jawaban singkat agar Anda paham cara kerjanya sebelum klik WhatsApp.",
+    "questions": {
+      "one": "Apakah akan overbook?",
+      "two": "Bisakah saya menyetujui setiap booking?",
+      "three": "Seberapa cepat setup-nya?",
+      "four": "Mendukung bahasa apa saja?",
+      "five": "Bisakah saya mematikannya kapan saja?",
+      "six": "Apakah bisa dipakai di notebook / ponsel manajer / kalender saya?",
+      "seven": "Bagaimana cara kerja reconfirmation?",
+      "eight": "Apa yang terjadi jika tamu membatalkan?"
+    }
+  },
+  "final-cta": {
+    "title": "Siap berhenti kehilangan booking?",
+    "microline": "Aktif dalam hitungan menit. Bisa dibatalkan kapan saja.",
+    "cta": "Mulai Uji Coba Gratis di WhatsApp"
+  },
+  "floating": {
+    "cta": "Mulai Uji Coba Gratis di WhatsApp",
+    "title": "Mulai Uji Coba Gratis di WhatsApp"
   }
 }
