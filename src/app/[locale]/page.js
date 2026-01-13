@@ -24,6 +24,7 @@ export default function Home() {
   const [selectedCardTitle, setSelectedCardTitle] = useState(null);
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
   const [openNewFaqIndex, setOpenNewFaqIndex] = useState(null);
+  const [activeHeroSlide, setActiveHeroSlide] = useState(0);
 
   useEffect(() => {
     const elements = Array.from(document.querySelectorAll("[data-reveal]"));
@@ -230,6 +231,32 @@ export default function Home() {
     // { label: "FAQ", href: "#operations" },
   ];
 
+  const heroSlides = [
+    {
+      image: "/assets/customerr.png",
+      title: "WhatsApp-first bookings",
+      description:
+        "Guests answer in chat, you see clear summaries and confirm in one tap.",
+    },
+    {
+      image: "/assets/managerr.png",
+      title: "Ready in minutes",
+      description:
+        "No install—just complete the setup prompts and start testing with your team.",
+    },
+  ];
+
+  useEffect(() => {
+    const totalSlides = heroSlides.length;
+    if (!totalSlides) return;
+
+    const timer = window.setInterval(() => {
+      setActiveHeroSlide((prev) => (prev + 1) % totalSlides);
+    }, 4800);
+
+    return () => window.clearInterval(timer);
+  }, [heroSlides.length]);
+
   return (
     <div className="min-h-screen bg-white text-[#0f172a]">
       <div className="sticky top-0 z-40">
@@ -268,7 +295,7 @@ export default function Home() {
       </div>
 
       <main className="space-y-16">
-        <section className="w-full px-6 h-[100dvh] md:h-screen flex items-center bg-gradient-to-br from-green-50 via-white to-[#1bf277]">
+        <section className="relative w-full px-6 pt-24 pb-12 md:pt-28 md:pb-16 min-h-[100dvh] md:min-h-screen flex items-center bg-gradient-to-br from-green-50 via-white to-[#1bf277]">
           <div
             aria-hidden="true"
             className="pointer-events-none absolute inset-0 z-0 opacity-[0.18] [mask-image:radial-gradient(ellipse_at_left,rgba(0,0,0,1)_0%,rgba(0,0,0,0)_70%)] [webkit-mask-image:radial-gradient(ellipse_at_left,rgba(0,0,0,1)_0%,rgba(0,0,0,0)_70%)]"
@@ -318,16 +345,36 @@ export default function Home() {
               </span>
             </div>
 
-            <div className="relative hidden md:block">
-              <div>
-                <Image
-                  src="/assets/hero.png"
-                  alt="Hero product preview"
-                  width={1200}
-                  height={900}
-                  className="h-full w-full object-cover"
-                  priority={true}
-                />
+            <div className="relative order-last md:order-none w-full">
+              <div className="relative w-full overflow-hidden  shadow-emerald-100/60 backdrop-blur">
+                {heroSlides.map((slide, idx) => (
+                  <div
+                    key={slide.title + idx}
+                    className={`transition-opacity duration-500 ${activeHeroSlide === idx ? "relative opacity-100" : "absolute inset-0 opacity-0 pointer-events-none"}`}
+                  >
+                    <Image
+                      src={slide.image}
+                      alt={slide.title}
+                      width={1200}
+                      height={900}
+                      className="h-auto w-full object-cover"
+                      sizes="(min-width: 1280px) 640px, (min-width: 1024px) 560px, 90vw"
+                      priority={idx === 0}
+                    />
+                    
+                  </div>
+                ))}
+              </div>
+              <div className="mt-4 flex items-center justify-center gap-3 md:justify-end">
+                {heroSlides.map((_, idx) => (
+                  <button
+                    key={idx}
+                    type="button"
+                    aria-label={`Go to slide ${idx + 1}`}
+                    onClick={() => setActiveHeroSlide(idx)}
+                    className={`h-2.5 w-2.5 rounded-full transition ${activeHeroSlide === idx ? "bg-[#006d5a]" : "bg-emerald-100"}`}
+                  />
+                ))}
               </div>
             </div>
           </div>
