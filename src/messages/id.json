@@ -100,6 +100,16 @@
       "six": "Apakah bisa dipakai di notebook / ponsel manajer / kalender saya?",
       "seven": "Bagaimana cara kerja reconfirmation?",
       "eight": "Apa yang terjadi jika tamu membatalkan?"
+    },
+    "answers": {
+      "one": "Sistem mengikuti mode konfirmasi yang Anda pilih (manual, otomatis dengan aturan, atau campuran), jadi tidak akan mengonfirmasi saat slot harus tetap ditutup.",
+      "two": "Ya—pilih konfirmasi manual dan setiap permintaan menunggu persetujuan Anda sebelum tamu menerima konfirmasi.",
+      "three": "Setup hanya beberapa menit di WhatsApp: jawab jam, aturan, dan bahasa, lalu bisa langsung dites.",
+      "four": "Pilih bahasanya saat setup; asisten bisa menyapa dan mengumpulkan detail dalam beberapa bahasa sekaligus.",
+      "five": "Anda bisa menjeda atau mematikan asisten kapan saja dan menyalakannya kembali saat siap.",
+      "six": "Berjalan di WhatsApp, jadi manajer bisa melihat ringkasan booking dari laptop atau ponsel tanpa instal apa pun, mengikuti aturan kalender yang Anda tetapkan.",
+      "seven": "Rekonfirmasi opsional menghubungi tamu sebelum jam layanan; tamu yang sudah pasti tetap ditandai dan kasus yang belum jelas bisa diteruskan ke manusia.",
+      "eight": "Jika tamu membatalkan, asisten mencatatnya sehingga Anda bisa membuka slot tersebut atau menindaklanjuti segera."
     }
   },
   "final-cta": {

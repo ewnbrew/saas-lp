@@ -100,6 +100,16 @@
       "six": "Does it work with my notebook / manager phone / calendar?",
       "seven": "How does reconfirmation work?",
       "eight": "What happens if a guest cancels?"
+    },
+    "answers": {
+      "one": "It follows the confirmation mode you choose (manual, auto under rules, or mixed), so it won't confirm when a slot should stay blocked.",
+      "two": "Yes—pick manual confirm and every request waits for your approval before guests get a yes.",
+      "three": "Setup takes a few minutes on WhatsApp: answer the hours, rules, and language prompts and you can test immediately.",
+      "four": "Choose the languages during setup; the assistant can greet and collect details in multiple languages at once.",
+      "five": "You can pause or switch off the assistant anytime and resume when you're ready.",
+      "six": "It runs on WhatsApp, so managers can review clean booking summaries from laptop or phone without extra installs, following the calendar rules you set.",
+      "seven": "Optional reconfirmation pings guests before service; confirmed guests stay marked and unclear cases can escalate to a human.",
+      "eight": "If a guest cancels, the assistant notes it so you can free the slot or follow up right away."
     }
   },
   "final-cta": {

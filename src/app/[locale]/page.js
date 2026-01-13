@@ -128,43 +128,35 @@ export default function Home() {
   const accordionFaqs = [
     {
       question: t("faq.questions.one"),
-      answer:
-        "It follows the confirmation mode you choose (manual, auto under rules, or mixed), so it won't confirm when a slot should stay blocked.",
+      answer: t("faq.answers.one"),
     },
     {
       question: t("faq.questions.two"),
-      answer:
-        "Yes—pick manual confirm and every request waits for your approval before guests get a yes.",
+      answer: t("faq.answers.two"),
     },
     {
       question: t("faq.questions.three"),
-      answer:
-        "Setup takes a few minutes on WhatsApp: answer the hours, rules, and language prompts and you can test immediately.",
+      answer: t("faq.answers.three"),
     },
     {
       question: t("faq.questions.four"),
-      answer:
-        "Choose the languages during setup; the assistant can greet and collect details in multiple languages at once.",
+      answer: t("faq.answers.four"),
     },
     {
       question: t("faq.questions.five"),
-      answer:
-        "You can pause or switch off the assistant anytime and resume when you're ready.",
+      answer: t("faq.answers.five"),
     },
     {
       question: t("faq.questions.six"),
-      answer:
-        "It runs on WhatsApp, so managers can review clean booking summaries from laptop or phone without extra installs, following the calendar rules you set.",
+      answer: t("faq.answers.six"),
     },
     {
       question: t("faq.questions.seven"),
-      answer:
-        "Optional reconfirmation pings guests before service; confirmed guests stay marked and unclear cases can escalate to a human.",
+      answer: t("faq.answers.seven"),
     },
     {
       question: t("faq.questions.eight"),
-      answer:
-        "If a guest cancels, the assistant notes it so you can free the slot or follow up right away.",
+      answer: t("faq.answers.eight"),
     },
   ];
 
