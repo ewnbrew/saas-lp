@@ -1,16 +1,24 @@
-import { Space_Grotesk, IBM_Plex_Mono, Poppins } from "next/font/google";
+import { Space_Grotesk, IBM_Plex_Mono, Poppins, Noto_Sans, Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "../globals.css";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
+// h1, h2, h2 etc..
+const notoSans = Plus_Jakarta_Sans({
+  variable: "--font-noto-sans",
   subsets: ["latin"],
   display: "swap",
 });
 
+// p / span
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"]
+})
+
+// Mono
 const plexMono = IBM_Plex_Mono({
   variable: "--font-plex-mono",
   subsets: ["latin"],
@@ -18,11 +26,6 @@ const plexMono = IBM_Plex_Mono({
   weight: ["100", "200", "300", "400", "500", "600", "700"],
 });
 
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-poppins",
-});
 
 export const metadata = {
   title: "Restaurant AI Chatbot | Automate Orders & Reservations",
@@ -40,7 +43,7 @@ export default async function RootLayout({ children, params }) {
   return (
     <html lang={locale}>
       <body
-        className={`${spaceGrotesk.variable} ${plexMono.variable} ${poppins.variable} antialiased`}
+        className={`${notoSans.variable} ${inter.variable} ${plexMono.variable} antialiased`}
       >
         <NextIntlClientProvider locale={locale} messages={messages}>
           {children}

@@ -22,7 +22,7 @@ export default function StepTabs({ steps }) {
         {steps.map((_, idx) => (
           <span
             key={idx}
-            className={`flex-1 w-[6px] transition ${idx === active ? "bg-[#2563eb]" : "bg-blue-100"}`}
+            className={`flex-1 w-[6px] transition ${idx === active ? "bg-[#006d5a]" : "bg-blue-100"}`}
           />
         ))}
       </div>
@@ -37,9 +37,9 @@ export default function StepTabs({ steps }) {
                 type="button"
                 key={step.label}
                 onClick={() => setActive(idx)}
-                className={`group relative flex w-full items-start gap-4 rounded-2xl border ${isActive ? "border-[#2563eb] bg-blue-50" : "border-blue-100 bg-white"} p-4 transition hover:-translate-y-0.5 hover:border-blue-200`}
+                className={`group relative flex w-full items-start gap-4 rounded-2xl border ${isActive ? "border-[#006d5a] bg-blue-50" : "border-blue-100 bg-white"} p-4 transition hover:-translate-y-0.5 hover:border-blue-200`}
               >
-                <div className={`flex h-10 w-10 items-center justify-center rounded-2xl ${isActive ? "bg-white text-[#2563eb]" : "bg-blue-50 text-[#1d4ed8]"} shadow-inner`}>
+                <div className={`flex h-10 w-10 items-center justify-center rounded-2xl ${isActive ? "bg-white text-[#006d5a]" : "bg-blue-50 text-[#005d4e]"} shadow-inner`}>
                   <Icon className="h-5 w-5" />
                 </div>
                 <div className="flex-1 space-y-1 text-left">

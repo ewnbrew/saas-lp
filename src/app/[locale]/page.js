@@ -1,233 +1,29 @@
 "use client";
 
-import {
-  Airplay,
-  AlertCircleIcon,
-  ArrowRightLeftIcon,
-  BeerIcon,
-  CalendarCheckIcon,
-  ChefHat,
-  ChefHatIcon,
-  CoffeeIcon,
-  CreditCardIcon,
-  icons,
-  MapPinHouseIcon,
-  MessageCircleIcon,
-  PackageCheckIcon,
-  PackageSearchIcon,
-  PanelLeftIcon,
-  RailSymbol,
-  ScanTextIcon,
-  ToggleRightIcon,
-  UserRoundCogIcon,
-  UtensilsIcon,
-  WorkflowIcon,
-} from "lucide-react";
 import Image from "next/image";
-import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
-import { FaC, FaRobot } from "react-icons/fa6";
-import { FaCheckCircle } from "react-icons/fa";
+import { FaBrain, FaC, FaRobot } from "react-icons/fa6";
+import { FaCalendarAlt, FaCheckCircle } from "react-icons/fa";
 import {
-  FiBell,
   FiBookOpen,
   FiCalendar,
   FiGlobe,
-  FiSend,
+  FiX,
   FiShoppingBag,
   FiXCircle,
 } from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
 import { useTranslations } from "next-intl";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
-
-const TargetIcon = ({ className = "h-5 w-5" }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth={1.8}
-    className={className}
-  >
-    <path d="M12 19a7 7 0 1 0-7-7" />
-    <path d="M5 12A2 2 0 1 0 7 14" />
-    <path d="M12 22a10 10 0 1 0-10-10" />
-    <circle cx="12" cy="12" r="2" />
-  </svg>
-);
-
-const AlertTriangleIcon = ({ className = "h-5 w-5" }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth={1.8}
-    className={className}
-  >
-    <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z" />
-    <path d="M12 9v4" />
-    <path d="M12 17h.01" />
-  </svg>
-);
-
-const SparklesIcon = ({ className = "h-5 w-5" }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth={1.8}
-    className={className}
-  >
-    <path d="M12 3v4" />
-    <path d="m16.2 7.8-2.9 2.9" />
-    <path d="m14 15-2 2" />
-    <path d="m9 12 2-2" />
-    <path d="M7.8 7.8 3 3" />
-    <path d="M21 21l-4.8-4.8" />
-  </svg>
-);
-
-const CompassIcon = ({ className = "h-5 w-5" }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth={1.8}
-    className={className}
-  >
-    <circle cx="12" cy="12" r="10" />
-    <path d="m16.24 7.76-1.53 4.59-4.59 1.53 1.53-4.59Z" />
-  </svg>
-);
-
-const AwardIcon = ({ className = "h-5 w-5" }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth={1.8}
-    className={className}
-  >
-    <circle cx="12" cy="8" r="6" />
-    <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
-  </svg>
-);
-
-const GlobeIcon = ({ className = "h-5 w-5" }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth={1.8}
-    className={className}
-  >
-    <circle cx="12" cy="12" r="10" />
-    <path d="M2 12h20" />
-    <path d="M12 2a15.3 15.3 0 0 0 4 10 15.3 15.3 0 0 1-8 0 15.3 15.3 0 0 0 4-10Z" />
-  </svg>
-);
-
-const ToolsIcon = ({ className = "h-5 w-5" }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth={1.8}
-    className={className}
-  >
-    <path d="m7.5 4.21 2.38 2.38-3.38 3.38a3 3 0 1 0 4.24 4.24l3.38-3.38 2.38 2.38a5.5 5.5 0 0 0-7.78-7.78Z" />
-    <path d="m2 22 5.5-5.5" />
-  </svg>
-);
-
-const LightningIcon = ({ className = "h-5 w-5" }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth={1.8}
-    className={className}
-  >
-    <path d="M13 2 3 14h9l-1 8 10-12h-9Z" />
-  </svg>
-);
-
-const LinkIcon = ({ className = "h-5 w-5" }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth={1.8}
-    className={className}
-  >
-    <path d="M10 13a5 5 0 0 0 7.54.54l1.92-1.92a4 4 0 0 0-5.66-5.66l-.88.88" />
-    <path d="M14 11a5 5 0 0 0-7.54-.54l-1.92 1.92a4 4 0 0 0 5.66 5.66l.88-.88" />
-  </svg>
-);
-
-const UploadIcon = ({ className = "h-5 w-5" }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth={1.8}
-    className={className}
-  >
-    <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" />
-    <path d="M7 9l5-5 5 5" />
-    <path d="M12 4v12" />
-  </svg>
-);
-
-const RocketIcon = ({ className = "h-5 w-5" }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth={1.8}
-    className={className}
-  >
-    <path d="M4.5 16.5c-1.1 1.1-2 3-2 3s1.9-.9 3-2 2-3 2-3-1.9.9-3 2Z" />
-    <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
-    <path d="M14 9l6-6" />
-    <path d="M9 9 3 3" />
-    <path d="m15 15 3 3" />
-    <path d="m9 15-3 3" />
-    <path d="M10 7 8 5a16 16 0 0 1 8 0l-2 2" />
-  </svg>
-);
-
-const ChartIcon = ({ className = "h-5 w-5" }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth={1.8}
-    className={className}
-  >
-    <path d="M3 3v18h18" />
-    <path d="M7 13h2v5H7z" />
-    <path d="M13 9h2v9h-2z" />
-    <path d="M19 5h2v13h-2z" />
-  </svg>
-);
+import { RiNotification3Fill } from "react-icons/ri";
+import { IoMdOptions } from "react-icons/io";
+import { BsCalendar2Event } from "react-icons/bs";
 
 export default function Home() {
   const t = useTranslations();
   const [selectedCardTitle, setSelectedCardTitle] = useState(null);
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
+  const [openNewFaqIndex, setOpenNewFaqIndex] = useState(null);
 
   useEffect(() => {
     const elements = Array.from(document.querySelectorAll("[data-reveal]"));
@@ -305,22 +101,26 @@ export default function Home() {
     {
       title: t("benefits.points.first.title"),
       description: t("benefits.points.first.description"),
-      icon: FiBell,
+      icon: RiNotification3Fill,
+      bg: "f4faff"
     },
     {
       title: t("benefits.points.second.title"),
       description: t("benefits.points.second.description"),
-      icon: FiCalendar,
+      icon: FaCalendarAlt,
+      bg: "f1f6f5"
     },
     {
       title: t("benefits.points.third.title"),
       description: t("benefits.points.third.description"),
       icon: FaCheckCircle,
+      bg: "f8f5ff"
     },
     {
       title: t("benefits.points.fourth.title"),
       description: t("benefits.points.fourth.description"),
-      icon: PanelLeftIcon,
+      icon: IoMdOptions,
+      bg: "f1f6f5"
     }
   ];
 
@@ -367,12 +167,59 @@ export default function Home() {
     },
   ];
 
+  const staticAccordionFaqs = [
+    {
+      question: "Will it overbook?",
+      answer:
+        "It follows the confirmation mode you choose (manual, auto under rules, or mixed), so it won't confirm when a slot should stay blocked.",
+    },
+    {
+      question: "Can I approve every booking?",
+      answer:
+        "Yes—pick manual confirm and every request waits for your approval before guests get a yes.",
+    },
+    {
+      question: "How fast is setup?",
+      answer:
+        "Setup takes a few minutes on WhatsApp: answer the hours, rules, and language prompts and you can test immediately.",
+    },
+    {
+      question: "What languages does it support?",
+      answer:
+        "Choose the languages during setup; the assistant can greet and collect details in multiple languages at once.",
+    },
+    {
+      question: "Can I turn it off anytime?",
+      answer:
+        "You can pause or switch off the assistant anytime and resume when you're ready.",
+    },
+    {
+      question: "Does it work with my notebook / manager phone / calendar?",
+      answer:
+        "It runs on WhatsApp, so managers can review clean booking summaries from laptop or phone without extra installs, following the calendar rules you set.",
+    },
+    {
+      question: "How does reconfirmation work?",
+      answer:
+        "Optional reconfirmation pings guests before service; confirmed guests stay marked and unclear cases can escalate to a human.",
+    },
+    {
+      question: "What happens if a guest cancels?",
+      answer:
+        "If a guest cancels, the assistant notes it so you can free the slot or follow up right away.",
+    },
+  ];
+
   const toggleSelectedCard = (title) => {
     setSelectedCardTitle((prev) => (prev === title ? null : title));
   };
 
   const toggleFaqItem = (index) => {
     setOpenFaqIndex((prev) => (prev === index ? null : index));
+  };
+
+  const toggleNewFaqItem = (index) => {
+    setOpenNewFaqIndex((prev) => (prev === index ? null : index));
   };
 
   const navLinks = [
@@ -386,17 +233,17 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white text-[#0f172a]">
       <div className="sticky top-0 z-40">
-        <header className="absolute inset-x-0 top-0 h-16 lg:h-20 bg-[#f8fafc]/95 backdrop-blur px-6 sm:px-10">
+        <header className="relative inset-x-0 top-0 h-16 lg:h-20 bg-[#f8fafc]/95 backdrop-blur px-6 sm:px-10">
           <div className="mx-auto flex h-full w-full max-w-6xl items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="h-10 w-10 rounded-xl bg-[#1daa61] flex items-center justify-center text-sm font-semibold text-white shadow-sm">
-                AI
+              <div className="h-10 w-10 rounded-xl bg-[#006d5a] flex items-center justify-center text-sm font-semibold text-white shadow-sm">
+                <BsCalendar2Event size={20}/>
               </div>
               <div>
-                <p className="text-xs sm:text-sm uppercase tracking-wider text-[#1daa61] font-semibold">
+                <p className="text-xs sm:text-sm uppercase tracking-wider text-[#006d5a] font-semibold">
                   {t("header.line-one")}
                 </p>
-                <p className="text-xs sm:text-sm uppercase tracking-wider text-[#1daa61] font-semibold">
+                <p className="text-xs sm:text-sm uppercase tracking-wider text-[#006d5a] font-semibold">
                   {t("header.line-second")}
                 </p>
                 <p className="text-sm font-semibold">{t("header.line-third")}</p>
@@ -408,7 +255,7 @@ export default function Home() {
                   <a
                     key={link.href}
                     href={link.href}
-                    className="hover:text-[#1d4ed8] transition"
+                    className="hover:text-[#005d4e] transition"
                   >
                     {link.label}
                   </a>
@@ -421,13 +268,13 @@ export default function Home() {
       </div>
 
       <main className="space-y-16">
-        <section className="relative w-full px-6 sm:px-10 pt-16 lg:pt-20 min-h-[100dvh] lg:h-screen flex items-center overflow-x-hidden bg-gradient-to-br from-green-50 via-white to-green-400 ">
+        <section className="w-full px-6 h-[100dvh] md:h-screen flex items-center bg-gradient-to-br from-green-50 via-white to-[#1bf277]">
           <div
             aria-hidden="true"
             className="pointer-events-none absolute inset-0 z-0 opacity-[0.18] [mask-image:radial-gradient(ellipse_at_left,rgba(0,0,0,1)_0%,rgba(0,0,0,0)_70%)] [webkit-mask-image:radial-gradient(ellipse_at_left,rgba(0,0,0,1)_0%,rgba(0,0,0,0)_70%)]"
             style={{
               backgroundImage:
-                "linear-gradient(to right, rgba(29,78,216,0.35) 1px, transparent 1px), linear-gradient(to bottom, rgba(29,78,216,0.35) 1px, transparent 1px)",
+                "linear-gradient(to right, rgba(0,109,90,0.35) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,109,90,0.35) 1px, transparent 1px)",
               backgroundSize: "56px 56px",
             }}
           />
@@ -436,46 +283,39 @@ export default function Home() {
             className="reveal relative z-10 mx-auto grid w-full max-w-6xl gap-12 lg:grid-cols-[1.1fr_0.9fr] items-center"
           >
             <div className="space-y-8">
-              <div className="w-fit flex items-center mx-auto sm:mx-0 gap-2 rounded-full border border-green-100 bg-white px-4 py-2 shadow-sm">
-                <FaRobot className="size-4 text-[#1daa61]" />
-                <p className="text-xs font-semibold">
-                  {t("hero.headline")}
-                </p>
-                {/* <span className="h-1.5 w-1.5 rounded-full bg-[#16a34a]" /> */}
-              </div>
               <div className="space-y-4">
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight text-center sm:text-left">
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-center sm:text-left">
                   {t("hero.tagline")}
                 </h1>
                 <p className="text-lg text-slate-700 max-w-2xl text-center sm:text-left">
                   {t("hero.subtagline")}
                 </p>
-                <ul className="mx-auto sm:mx-0 flex flex-col gap-2 text-base text-slate-700 max-w-2xl">
-                  <li className="flex items-start gap-2">
-                    <FaCheckCircle className="mt-1 text-[#1daa61]" />
-                    <span>{t("hero.bullet.one")}</span>
+                <ul className="mx-auto sm:mx-0 flex flex-col gap-3 text-base text-slate-700 max-w-2xl">
+                  <li className="flex items-start gap-3">
+                    <FaCheckCircle className="mt-1 shrink-0 text-[#006d5a]" />
+                    <span className="flex-1 leading-relaxed">{t("hero.bullet.one")}</span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <FaCheckCircle className="mt-1 text-[#1daa61]" />
-                    <span>{t("hero.bullet.two")}</span>
+                  <li className="flex items-start gap-3">
+                    <FaCheckCircle className="mt-1 shrink-0 text-[#006d5a]" />
+                    <span className="flex-1 leading-relaxed">{t("hero.bullet.two")}</span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <FaCheckCircle className="mt-1 text-[#1daa61]" />
-                    <span>{t("hero.bullet.three")}</span>
+                  <li className="flex items-start gap-3">
+                    <FaCheckCircle className="mt-1 shrink-0 text-[#006d5a]" />
+                    <span className="flex-1 leading-relaxed">{t("hero.bullet.three")}</span>
                   </li>
                 </ul>
               </div>
               <div className="flex items-center gap-3 justify-center sm:justify-start">
                 <a
                   href="#"
-                  className="flex items-center gap-2 rounded-full bg-[#1daa61] px-6 py-3 text-sm sm:text-base font-semibold text-white shadow-[0_12px_32px_-16px_rgba(37,99,235,0.7)] hover:-translate-y-0.5 transition"
+                  className="flex items-center gap-2 rounded-full bg-[#006d5a] px-6 py-3 text-sm sm:text-base font-semibold text-white shadow-[0_12px_32px_-16px_rgba(0,109,90,0.7)] hover:-translate-y-0.5 transition"
                 >
                   <FaWhatsapp size={23} /> {t("hero.cta")}
                 </a>
               </div>
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#1daa61] text-center sm:text-left">
+              <span className="text-sm uppercase tracking-[0.18em] text-center sm:text-left">
                 {t("hero.microline")}
-              </p>
+              </span>
             </div>
 
             <div className="relative hidden md:block">
@@ -496,7 +336,7 @@ export default function Home() {
         <div className="mx-auto max-w-6xl space-y-16">
           <section
             id="service"
-            className="grid pt-10 px-6 xl:px-0 gap-8 lg:grid-cols-3 items-start"
+            className="grid py-16 px-6 xl:px-0 gap-8 lg:grid-cols-3 items-start"
           >
             <div id="service" className="lg:col-span-12">
               <div
@@ -504,7 +344,7 @@ export default function Home() {
                 className="reveal flex justify-center text-center items-center gap-3"
               >
                 <div className="mb-5">
-                  <h2 className="text-4xl font-semibold">
+                  <h2 className="text-4xl font-medium text-black">
                     {t("problem.title")}
                   </h2>
                 </div>
@@ -512,10 +352,10 @@ export default function Home() {
 
               <div
                 data-reveal
-                className={`flex justify-center items-center reveal group isolate relative overflow-hidden transition will-change-transform focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-600/40 before:pointer-events-none before:absolute before:-top-28 before:-right-24 before:h-56 before:w-56 before:rounded-full before:bg-gradient-to-br before:from-[#2563eb]/20 before:via-[#16a34a]/10 before:to-transparent before:blur-2xl before:opacity-0 before:transition before:duration-500 group-hover:before:opacity-100 after:pointer-events-none after:absolute after:inset-0 after:bg-[linear-gradient(to_right,rgba(37,99,235,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(37,99,235,0.08)_1px,transparent_1px)] after:bg-[size:28px_28px] after:opacity-0 after:transition after:duration-500 group-hover:after:opacity-100`}
+                className={`flex justify-center items-center reveal group isolate relative overflow-hidden transition will-change-transform focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-600/40 before:pointer-events-none before:absolute before:-top-28 before:-right-24 before:h-56 before:w-56 before:rounded-full before:bg-gradient-to-br before:from-[#006d5a]/20 before:via-[#16a34a]/10 before:to-transparent before:blur-2xl before:opacity-0 before:transition before:duration-500 group-hover:before:opacity-100 after:pointer-events-none after:absolute after:inset-0 after:bg-[linear-gradient(to_right,rgba(0,109,90,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,109,90,0.08)_1px,transparent_1px)] after:bg-[size:28px_28px] after:opacity-0 after:transition after:duration-500 group-hover:after:opacity-100`}
                 style={{ transitionDelay: `${60}ms` }}
               >
-                <span className="text-center text-xl font-normal">{t("problem.text")}</span>
+                <span className="text-center text-lg font-light text-[#3b3b3b]">{t("problem.text")}</span>
               </div>
             </div>
           </section>
@@ -524,7 +364,7 @@ export default function Home() {
         <div className="mx-auto max-w-6xl space-y-16">
           <section
             id="third"
-            className="grid pt-12 px-6 lg:px-8 xl:px-0 gap-10 lg:grid-cols-3 items-start"
+            className="grid py-16 px-6 lg:px-8 xl:px-0 gap-10 lg:grid-cols-3 items-start"
           >
             <div id="service" className="lg:col-span-12">
               <div
@@ -532,7 +372,7 @@ export default function Home() {
                 className="reveal flex justify-center text-center items-center gap-3"
               >
                 <div className="mb-5">
-                  <h2 className="text-4xl font-semibold">
+                  <h2 className="text-4xl font-medium text-black">
                     {t("benefits.title")}
                   </h2>
                 </div>
@@ -541,20 +381,19 @@ export default function Home() {
               <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
                 {benefits.map((feature, index) => {
                   const Icon = feature.icon;
-                  const isSelected = selectedCardTitle === feature.title;
                   return (
                     <div
                       key={feature.title}
                       data-reveal
-                      className={`reveal group isolate relative overflow-hidden cursor-pointer rounded-2xl border bg-gradient-to-br from-white via-white to-green-50 p-6 shadow-sm backdrop-blur transition will-change-transform hover:-translate-y-1 hover:shadow-xl hover:shadow-green-200/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-600/40 ${isSelected
-                        ? "border-green-600 ring-2 ring-green-600/25"
-                        : "border-green-100/80 hover:border-green-200/90"
-                        } before:pointer-events-none before:absolute before:-top-24 before:-right-20 before:h-48 before:w-48 before:rounded-full before:bg-gradient-to-br before:from-[#2563eb]/20 before:via-[#16a34a]/10 before:to-transparent before:blur-2xl before:opacity-0 before:transition before:duration-500 group-hover:before:opacity-100 after:pointer-events-none after:absolute after:inset-0 after:bg-[linear-gradient(to_right,rgba(37,99,235,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(37,99,235,0.08)_1px,transparent_1px)] after:bg-[size:28px_28px] after:opacity-0 after:transition after:duration-500 group-hover:after:opacity-100`}
-                      style={{ transitionDelay: `${index * 60}ms` }}
+                      className="reveal group isolate relative overflow-hidden cursor-pointer rounded-2xl p-6 transition will-change-transform focus-visible:outline-none"
+                      style={{
+                        transitionDelay: `${index * 60}ms`,
+                        backgroundColor: `#${feature.bg}`,
+                      }}
                     >
-                      <div className="flex h-full items-start gap-4">
+                      <div className="flex h-full flex-col items-start gap-4">
                         {Icon && (
-                          <span className="mt-1 flex h-12 w-12 items-center justify-center rounded-xl border border-green-100 bg-green-50 text-[#1daa61] shadow-inner shadow-green-100/40">
+                          <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-white text-[#09474f] shadow-inner shadow-green-100/40">
                             <Icon className="h-6 w-6" />
                           </span>
                         )}
@@ -562,7 +401,7 @@ export default function Home() {
                           <p className="text-lg font-semibold text-[#0f172a]">
                             {feature.title}
                           </p>
-                          <p className="text-base text-slate-600 leading-relaxed">
+                          <p className="text-base text-[#3b3b3b] leading-relaxed">
                             {feature.description}
                           </p>
                         </div>
@@ -575,10 +414,10 @@ export default function Home() {
           </section>
         </div>
 
-        <div className="mx-auto max-w-6xl space-y-16 pb-16">
+        <div className="mx-auto max-w-6xl space-y-16">
           <section
             id="benefits"
-            className="grid pt-10 px-6 md:px-0 gap-6 lg:grid-cols-3 items-start"
+            className="grid py-16 px-6 md:px-0 gap-6 lg:grid-cols-3 items-start"
           >
             <div id="features" className="lg:col-span-12">
               <div
@@ -586,13 +425,12 @@ export default function Home() {
                 className="reveal flex justify-center text-center items-center gap-3"
               >
                 <div className="mb-5">
-                  <h2 className="text-4xl font-semibold">
+                  <h2 className="text-4xl font-medium text-black">
                     {t("section-second.title")}
                   </h2>
-                  {/* <p className="text-lg text-slate-600">{t("section-second.sub-title")}</p> */}
                 </div>
               </div>
-              <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-2">
                 {featureMatrix.map((feature, index) => {
                   const Icon = feature.icon;
                   const isSelected = selectedCardTitle === feature.title;
@@ -600,42 +438,63 @@ export default function Home() {
                     <div
                       key={feature.title}
                       data-reveal
-                      className={`reveal group isolate relative overflow-hidden cursor-pointer rounded-2xl border bg-gradient-to-br from-white via-white to-green-50 p-8 shadow-sm backdrop-blur transition will-change-transform hover:-translate-y-1 hover:shadow-xl hover:shadow-green-200/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-600/40 ${isSelected
-                        ? "border-green-600 ring-2 ring-green-600/25"
-                        : "border-green-100/80 hover:border-green-200/90"
-                        } before:pointer-events-none before:absolute before:-top-28 before:-right-24 before:h-56 before:w-56 before:rounded-full before:bg-gradient-to-br before:from-[#2563eb]/20 before:via-[#16a34a]/10 before:to-transparent before:blur-2xl before:opacity-0 before:transition before:duration-500 group-hover:before:opacity-100 after:pointer-events-none after:absolute after:inset-0 after:bg-[linear-gradient(to_right,rgba(37,99,235,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(37,99,235,0.08)_1px,transparent_1px)] after:bg-[size:28px_28px] after:opacity-0 after:transition after:duration-500 group-hover:after:opacity-100`}
+                      className={`reveal group isolate relative overflow-hidden cursor-pointer rounded-xl  border border-[#e0e0e0] p-8`}
                       style={{ transitionDelay: `${index * 60}ms` }}
                     >
-                      <div className="flex flex-col gap-3">
-                        <div className="w-fit p-3 rounded-xl bg-gradient-to-br from-green-50 via-white to-emerald-50 shadow-sm ring-1 ring-green-100">
-                          <Icon className="text-[#1da661] size-5 transition-transform duration-300 group-hover:scale-110" />
+                      <div className="flex items-center gap-3 mb-8">
+                        <div className="w-fit rounded-xl">
+                          <Icon className="text-[#09474f] size-6 transition-transform duration-300 group-hover:scale-110" />
                         </div>
-                        <p className="text-2xl font-semibold text-[#0f172a]">
+                        <p className="text-2xl font-normal">
                           {feature.title}
                         </p>
                       </div>
 
                       {feature.description && (
-                        <p className="mt-3 text-lg text-slate-600">
+                        <p className="mt-3 text-lg font-medium">
                           {feature.description}
                         </p>
                       )}
 
                       {feature.steps && (
-                        <ol className="relative z-10 mt-3 list-decimal space-y-1 pl-4 text-lg text-slate-600">
+                        <ol className="relative z-10 mt-3 list-none space-y-4 text-md font-medium">
                           {feature.steps.map((step, index) => (
-                            <li key={index}>{step}</li>
+                            <li key={index} className="flex items-start gap-3">
+                              <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#006d5a]/10 text-[#006d5a] text-sm font-semibold">
+                                {index + 1}
+                              </span>
+                              <span className="flex-1 leading-relaxed">{step}</span>
+                            </li>
                           ))}
                         </ol>
                       )}
 
                       {feature.points && (
-                        <ul className="relative z-10 mt-3 list-disc space-y-1 pl-4 text-lg text-slate-600">
-                          {feature.points.map((point, index) => (
-                            <li key={index}>{point}</li>
-                          ))}
-                        </ul>
-                      )}
+                        <ul className="relative z-10 mt-3 list-none space-y-4 text-md font-medium">
+                          {feature.points.map((point, pointIndex) => {
+                            const isCrossList = index === 3;
+                            const isChecklist = index === 4;
+                            return (
+                              <li key={pointIndex} className="flex items-start gap-3">
+                                {isCrossList && (
+                                  <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-red-100 bg-red-50 text-red-600">
+                                    <FiX className="h-4 w-4" />
+                                  </span>
+                                )}
+                                {isChecklist && (
+                                  <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#006d5a]/10 text-[#006d5a]">
+                                    <FaCheckCircle className="h-4 w-4" />
+                                  </span>
+                                )}
+                                {!isCrossList && !isChecklist && (
+                                  <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-slate-400" />
+                                )}
+                              <span className="flex-1 leading-relaxed">{point}</span>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    )}
                     </div>
                   );
                 })}
@@ -647,7 +506,7 @@ export default function Home() {
               >
                 <a
                   href="#"
-                  className="flex items-center gap-2 rounded-full bg-[#1daa61] px-6 py-3 text-lg sm:text-base font-semibold text-white shadow-[0_12px_32px_-16px_rgba(37,99,235,0.7)] hover:-translate-y-0.5 transition"
+                  className="flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-[#006d5a] px-6 py-3 text-base md:text-md font-medium text-white"
                 >
                   <FaWhatsapp size={23} /> {t("section-second.cta")}
                 </a>
@@ -656,10 +515,11 @@ export default function Home() {
           </section>
         </div>
 
-        <div className="mx-auto max-w-4xl space-y-10 pb-24">
+
+        <div className="mx-auto max-w-4xl space-y-10">
           <section
             id="faq-accordion"
-            className="grid pt-4 px-6 xl:px-0 gap-6 lg:grid-cols-3 items-start"
+            className="grid py-16 px-6 xl:px-0 gap-6 lg:grid-cols-3 items-start"
           >
             <div className="lg:col-span-12">
               <div
@@ -669,13 +529,13 @@ export default function Home() {
                 <h2 className="text-4xl font-semibold">{t("faq.title")}</h2>
               </div>
 
-              <div className="mt-6 overflow-hidden rounded-3xl border border-green-100 bg-white shadow-sm shadow-green-100/30">
+              <div className="mt-6 overflow-hidden rounded-xl border border-[#e0e0e0] bg-white">
                 {accordionFaqs.map((item, index) => {
                   const isOpen = openFaqIndex === index;
                   return (
                     <div
                       key={item.question}
-                      className={`border-b border-green-50 last:border-b-0 ${isOpen ? "bg-green-50/40" : "bg-white"
+                      className={`border-b border-[#e0e0e0] last:border-b-0 ${isOpen ? "bg-[#f1f6f5]" : "bg-white"
                         }`}
                     >
                       <button
@@ -685,12 +545,12 @@ export default function Home() {
                         className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left sm:px-6 sm:py-5"
                       >
                         <div className="flex items-center gap-3">
-                          <p className="text-lg font-semibold text-[#0f172a]">
+                          <h3 className="text-lg font-medium text-[#0f172a]">
                             {item.question}
-                          </p>
+                          </h3>
                         </div>
                         <span
-                          className={`flex h-9 w-9 items-center justify-center rounded-full border border-green-100 text-base font-bold text-[#1daa61] transition-transform duration-200 ${isOpen ? "rotate-45" : ""
+                          className={`flex h-9 w-9 items-center justify-center rounded-full border border-[#e0e0e0] text-base font-bold text-[#006d5a] transition-transform duration-200 ${isOpen ? "rotate-45" : ""
                             }`}
                         >
                           +
@@ -718,17 +578,17 @@ export default function Home() {
         <div className="mx-auto max-w-6xl space-y-16 px-6 sm:px-10 pb-16">
           <section
             id="cta-ready"
-            className="grid pt-10 px-0 xl:px-0 gap-8 items-center"
+            className="grid py-16 px-0 xl:px-0 gap-8 items-center"
           >
             <div className="lg:col-span-12">
               <div
                 data-reveal
                 className="reveal flex flex-col items-center gap-4 text-center"
               >
-                <h3 className="text-3xl sm:text-4xl font-semibold text-[#0f172a] leading-tight">
+                <h2 className="text-3xl sm:text-3xl font-medium text-[#0f172a] leading-tight">
                   {t("final-cta.title")}
-                </h3>
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#1daa61]">
+                </h2>
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#006d5a]">
                   {t("final-cta.microline")}
                 </p>
               </div>
@@ -739,7 +599,7 @@ export default function Home() {
               >
                 <a
                   href="#"
-                  className="flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-[#1daa61] px-6 py-3 text-base sm:text-lg font-semibold text-white shadow-[0_12px_32px_-16px_rgba(37,99,235,0.7)] hover:-translate-y-0.5 transition"
+                  className="flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-[#006d5a] px-6 py-3 text-base md:text-md font-medium text-white"
                 >
                   <FaWhatsapp size={23} /> {t("final-cta.cta")}
                 </a>
@@ -748,11 +608,12 @@ export default function Home() {
           </section>
         </div>
 
+        {/* Floating Button */}
         <div className="fixed bottom-6 right-5 z-40">
           <div className="group relative">
             <a
               href="#"
-              className="flex items-center gap-2 rounded-full bg-[#1daa61] p-3 text-sm sm:text-base font-semibold text-white shadow-lg shadow-green-200 hover:-translate-y-0.5 transition"
+              className="flex items-center gap-2 bg-[#006d5a] rounded-full p-3 text-sm sm:text-base font-semibold text-white"
             >
               <FaWhatsapp size={24} />
               <span className="sr-only">{t("floating.cta")}</span>

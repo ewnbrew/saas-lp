@@ -1,31 +1,41 @@
 @import "tailwindcss";
 
-:root {
-  --background: #f8fafc;
-  --foreground: #0f172a;
-  --accent: #2563eb;
-  --muted: #6b7280;
-}
-
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-space-grotesk);
-  --font-mono: var(--font-plex-mono);
+  --font-sans: var(--font-inter), "Inter", system-ui, -apple-system, sans-serif;
+  --font-heading: var(--font-noto-sans), "Noto Sans", system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-plex-mono), "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-bg: var(--font-bg-family);
 }
 
-body {
-  background: #fffaf4;
-  color: var(--foreground);
-  font-family: var(--font-sans), system-ui, sans-serif;
-  min-height: 100vh;
-  overflow-x: hidden;
+:root {
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --accent: #006d5a;
+  --muted: #6b7280;
 }
 
-::selection {
-  background: rgba(255, 122, 47, 0.2);
-  color: var(--foreground);
+@layer base {
+  body {
+    font-family: var(--font-inter), "Inter", system-ui, -apple-system, sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-noto-sans), "Noto Sans", system-ui, -apple-system, sans-serif;
+  }
+
+  code,
+  pre {
+    font-family: var(--font-plex-mono), "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  }
 }
+
 
 @layer utilities {
   .reveal {

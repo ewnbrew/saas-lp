@@ -223,17 +223,17 @@ export default function Home() {
         <header className="absolute inset-x-0 top-0 bg-[#f8fafc]/95 backdrop-blur px-6 sm:px-10">
           <div className="mx-auto flex w-full max-w-6xl items-center justify-between py-4">
             <div className="flex items-center gap-3">
-              <div className="h-10 w-10 rounded-xl bg-[#2563eb] flex items-center justify-center text-sm font-semibold text-white shadow-sm">
+              <div className="h-10 w-10 rounded-xl bg-[#006d5a] flex items-center justify-center text-sm font-semibold text-white shadow-sm">
                 AI
               </div>
               <div>
-                <p className="text-[11px] uppercase tracking-[0.32em] text-[#1d4ed8]">Restaurant Chatbot</p>
+                <p className="text-[11px] uppercase tracking-[0.32em] text-[#005d4e]">Restaurant Chatbot</p>
                 <p className="text-sm font-semibold">Always-on digital host</p>
               </div>
             </div>
             <div className="hidden md:flex items-center gap-6 text-sm font-semibold text-slate-600">
               {navLinks.map((link) => (
-                <a key={link.href} href={link.href} className="hover:text-[#1d4ed8] transition">
+                <a key={link.href} href={link.href} className="hover:text-[#005d4e] transition">
                   {link.label}
                 </a>
               ))}
@@ -241,7 +241,7 @@ export default function Home() {
             <div className="flex items-center gap-2">
               <a
                 href="#pricing"
-                className="rounded-full border border-blue-200 bg-white px-5 py-2 text-xs sm:text-sm font-semibold text-[#1d4ed8] transition hover:-translate-y-0.5 shadow-sm"
+                className="rounded-full border border-blue-200 bg-white px-5 py-2 text-xs sm:text-sm font-semibold text-[#005d4e] transition hover:-translate-y-0.5 shadow-sm"
               >
                 Pricing & Plans
               </a>
@@ -251,10 +251,10 @@ export default function Home() {
       </div>
 
       <main className="space-y-16">
-        <section className="relative pt-16 pb-16 w-full px-6 sm:px-10 pt-8 min-h-[100dvh] lg:min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-[#e0f2fe] via-white to-[#e0fcef]">
+        <section className="relative pt-16 pb-16 w-full px-6 sm:px-10 pt-8 min-h-[100dvh] lg:min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-[#d6f5ee] via-white to-[#e0fcef]">
           <div className="mx-auto grid w-full max-w-6xl gap-12 lg:grid-cols-[1.1fr_0.9fr] items-center">
             <div className="space-y-8">
-              <div className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white px-4 py-2 text-xs font-semibold text-[#1d4ed8] shadow-sm">
+              <div className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white px-4 py-2 text-xs font-semibold text-[#005d4e] shadow-sm">
                 Built for real restaurant operations
                 <span className="h-1.5 w-1.5 rounded-full bg-[#16a34a]" />
               </div>
@@ -267,7 +267,7 @@ export default function Home() {
                 </p>
               </div>
               <div className="flex flex-wrap items-center gap-3">
-                <button className="rounded-full bg-[#2563eb] px-6 py-3 text-sm sm:text-base font-semibold text-white shadow-[0_12px_32px_-16px_rgba(37,99,235,0.7)] hover:-translate-y-0.5 transition">
+                <button className="rounded-full bg-[#006d5a] px-6 py-3 text-sm sm:text-base font-semibold text-white shadow-[0_12px_32px_-16px_rgba(0,109,90,0.7)] hover:-translate-y-0.5 transition">
                   Coba sekarang di WhatsApp
                 </button>
               </div>
@@ -306,7 +306,7 @@ export default function Home() {
                     key={index}
                     className="flex items-center gap-2 rounded-2xl border border-blue-50 bg-gradient-to-br from-white via-white to-blue-50/30 px-5 py-4 text-sm font-medium text-[#0f172a] transition hover:-translate-y-0.5 hover:shadow-md"
                   >
-                    <div className="bg-[#e0f2fe] p-2 rounded-lg text-[#1d4ed8] border border-blue-50">
+                    <div className="bg-[#d6f5ee] p-2 rounded-lg text-[#005d4e] border border-blue-50">
                       {item.icon}
                     </div>
                     <span>{item.name}</span>
@@ -314,7 +314,7 @@ export default function Home() {
                 ))}
               </div>
 
-              <p className="mt-5 text-sm text-[#1d4ed8]">
+              <p className="mt-5 text-sm text-[#005d4e]">
                 One platform, tailored automatically to how your restaurant operates.
               </p>
             </div>
@@ -323,7 +323,7 @@ export default function Home() {
 
           {/* <section className="grid items-center gap-6 lg:grid-cols-12">
             <div className="lg:col-span-6">
-              <div className="relative overflow-hidden rounded-[28px] bg-gradient-to-br from-[#1d4ed8] via-[#2563eb] to-[#1e40af] shadow-[0_25px_70px_-35px_rgba(37,99,235,0.7)]">
+              <div className="relative overflow-hidden rounded-[28px] bg-gradient-to-br from-[#005d4e] via-[#006d5a] to-[#00463a] shadow-[0_25px_70px_-35px_rgba(0,109,90,0.7)]">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.18),transparent_35%),radial-gradient(circle_at_80%_0%,rgba(255,255,255,0.15),transparent_30%)]" />
                 <Image
                   src="/assets/hero.png"
@@ -345,7 +345,7 @@ export default function Home() {
 
             <div className="lg:col-span-6 space-y-6">
               <div className="flex items-center gap-3">
-                <div className="h-11 w-11 rounded-2xl bg-blue-50 text-[#1d4ed8] flex items-center justify-center">
+                <div className="h-11 w-11 rounded-2xl bg-blue-50 text-[#005d4e] flex items-center justify-center">
                   <AlertCircleIcon className="h-5 w-5" />
                 </div>
                 <div>
@@ -384,7 +384,7 @@ export default function Home() {
                     key={index}
                     className="flex items-center gap-2 rounded-2xl border border-blue-50 bg-gradient-to-br from-white via-white to-blue-50/30 px-5 py-4 text-sm font-medium text-[#0f172a] transition hover:-translate-y-0.5 hover:shadow-md"
                   >
-                    <div className="bg-[#e0f2fe] p-2 rounded-lg text-[#1d4ed8] border border-blue-50">
+                    <div className="bg-[#d6f5ee] p-2 rounded-lg text-[#005d4e] border border-blue-50">
                       {item.icon}
                     </div>
                     <span>{item.name}</span>
@@ -408,7 +408,7 @@ export default function Home() {
                   return (
                     <div key={feature.title} className="rounded-2xl border border-blue-50 p-8">
                       <div className="flex flex-col gap-3">
-                        <span className="flex h-10 w-10 items-center justify-center shadow-sm rounded-full bg-blue-50 text-[#1d4ed8]">
+                        <span className="flex h-10 w-10 items-center justify-center shadow-sm rounded-full bg-blue-50 text-[#005d4e]">
                           <Icon className="h-5 w-5" />
                         </span>
                         <p className="text-base font-semibold text-[#0f172a]">{feature.title}</p>
@@ -423,7 +423,7 @@ export default function Home() {
 
           {/* <section id="channels" className="space-y-6">
             <div className="flex items-center gap-3">
-              <div className="h-11 w-11 rounded-2xl bg-blue-50 text-[#1d4ed8] flex items-center justify-center">
+              <div className="h-11 w-11 rounded-2xl bg-blue-50 text-[#005d4e] flex items-center justify-center">
                 <AwardIcon className="h-5 w-5" />
               </div>
               <div>
@@ -441,7 +441,7 @@ export default function Home() {
                     key={`${advantage}-${idx}`}
                     className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white px-4 py-2 text-sm font-semibold text-[#0f172a] shadow-sm"
                   >
-                    <span className="h-2 w-2 rounded-full bg-[#1d4ed8]" />
+                    <span className="h-2 w-2 rounded-full bg-[#005d4e]" />
                     {advantage}
                   </span>
                 ))}
@@ -450,7 +450,7 @@ export default function Home() {
 
             <div className="space-y-9">
               <div className="flex items-center gap-3">
-                <div className="h-10 w-10 rounded-2xl bg-blue-50 text-[#1d4ed8] flex items-center justify-center">
+                <div className="h-10 w-10 rounded-2xl bg-blue-50 text-[#005d4e] flex items-center justify-center">
                   <GlobeIcon className="h-5 w-5" />
                 </div>
                 <div>
@@ -467,10 +467,10 @@ export default function Home() {
                       className="rounded-2xl border border-blue-100 bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
                     >
                       <div className="flex items-center justify-between">
-                        <span className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-50 text-[#1d4ed8]">
+                        <span className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-50 text-[#005d4e]">
                           <Icon className="h-5 w-5" />
                         </span>
-                        <span className="rounded-full bg-blue-50 px-3 py-1 text-[11px] font-semibold text-[#1d4ed8] shadow-sm">
+                        <span className="rounded-full bg-blue-50 px-3 py-1 text-[11px] font-semibold text-[#005d4e] shadow-sm">
                           {channel.badge}
                         </span>
                       </div>
@@ -527,8 +527,8 @@ export default function Home() {
               </div>
               <div className="grid gap-4 md:grid-cols-3">
                 {plans.map((plan) => (
-                  <div key={plan.name} className="rounded-2xl border border-blue-100 bg-white p-4 shadow-sm bg-gradient-to-br from-white via-white to-[#e0f2fe]">
-                    <p className="text-md font-bold text-[#1d4ed8]">{plan.name} Plan</p>
+                  <div key={plan.name} className="rounded-2xl border border-blue-100 bg-white p-4 shadow-sm bg-gradient-to-br from-white via-white to-[#d6f5ee]">
+                    <p className="text-md font-bold text-[#005d4e]">{plan.name} Plan</p>
                     <p className="text-xs text-slate-600">{plan.tagline}</p>
                     <div className="mt-3 flex items-baseline gap-1">
                       <span className="text-2xl font-semibold text-[#0f172a]">{plan.price}</span>
@@ -537,7 +537,7 @@ export default function Home() {
                     <div className="mt-3 space-y-2">
                       {plan.highlights.map((item) => (
                         <div key={item} className="flex items-start gap-2 text-xs text-slate-700">
-                          <span className="text-[#1d4ed8]">•</span>
+                          <span className="text-[#005d4e]">•</span>
                           <span>{item}</span>
                         </div>
                       ))}
@@ -545,7 +545,7 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-              <p className="text-sm text-[#1d4ed8]">Upgrade anytime as your volume grows.</p>
+              <p className="text-sm text-[#005d4e]">Upgrade anytime as your volume grows.</p>
             </div>
           </section> */}
 
@@ -562,7 +562,7 @@ export default function Home() {
                   key={idx}
                   className={`flex md:flex-col items-start gap-3 rounded-2xl border border-blue-50 px-4 py-3 bg-white`}
                 >
-                  <div className="bg-[#e0f2fe] p-2 rounded-lg text-[#1d4ed8]">
+                  <div className="bg-[#d6f5ee] p-2 rounded-lg text-[#005d4e]">
                     {item.icon}
                   </div>
                   <p className="text-sm font-bold">{item.text}</p>
@@ -571,7 +571,7 @@ export default function Home() {
             </div>
           </section> */}
 
-          {/* <section className="rounded-[28px] border border-blue-100 bg-white p-8 sm:p-10 shadow-[0_24px_60px_-30px_rgba(37,99,235,0.18)] bg-gradient-to-br from-[#e0f2fe] via-white to-white">
+          {/* <section className="rounded-[28px] border border-blue-100 bg-white p-8 sm:p-10 shadow-[0_24px_60px_-30px_rgba(0,109,90,0.18)] bg-gradient-to-br from-[#d6f5ee] via-white to-white">
             <div className="text-center">
               <div>
                 <h2 className="text-2xl sm:text-3xl font-semibold text-center">
@@ -580,7 +580,7 @@ export default function Home() {
               </div>
             </div>
             <div className="mt-6 flex flex-wrap justify-center items-center">
-              <button className="rounded-full bg-[#2563eb] px-6 py-3 text-sm sm:text-base font-semibold text-white shadow-[0_12px_32px_-16px_rgba(37,99,235,0.7)] hover:-translate-y-0.5 transition">
+              <button className="rounded-full bg-[#006d5a] px-6 py-3 text-sm sm:text-base font-semibold text-white shadow-[0_12px_32px_-16px_rgba(0,109,90,0.7)] hover:-translate-y-0.5 transition">
                 Start Your Restaurant AI Today
               </button>
             </div>
