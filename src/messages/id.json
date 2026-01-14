@@ -8,7 +8,7 @@
     "headline": "Dibuat untuk Operasional Restoran Sebenarnya",
     "tagline": "Berhenti Kehilangan Reservasi di WhatsApp.",
     "subtagline": "Balasan instan + pertanyaan tepat + ringkasan booking rapi dikirim ke manajer.",
-    "cta": "Mulai Uji Coba Gratis di WhatsApp",
+    "cta": "Mulai Uji Coba Gratis",
     "bullet": {
       "one": "Bekerja dengan proses Anda sekarang (WhatsApp / buku catatan / ponsel manajer)",
       "two": "Anda tetap mengontrol (konfirmasi manual atau otomatis sesuai aturan Anda)",
@@ -23,7 +23,7 @@
   "section-second": {
     "title": "Cara Kerja untuk Restoran",
     "sub-title": "",
-    "cta": "Mulai Uji Coba Gratis di WhatsApp",
+    "cta": "Mulai Uji Coba Gratis",
     "points": {
       "first": {
         "title": "Untuk siapa",
@@ -115,10 +115,10 @@
   "final-cta": {
     "title": "Siap berhenti kehilangan booking?",
     "microline": "Aktif dalam hitungan menit. Bisa dibatalkan kapan saja.",
-    "cta": "Mulai Uji Coba Gratis di WhatsApp"
+    "cta": "Mulai Uji Coba Gratis"
   },
   "floating": {
-    "cta": "Mulai Uji Coba Gratis di WhatsApp",
-    "title": "Mulai Uji Coba Gratis di WhatsApp"
+    "cta": "Mulai Uji Coba Gratis",
+    "title": "Mulai Uji Coba Gratis"
   }
 }

@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import { FaBrain, FaC, FaRobot } from "react-icons/fa6";
 import { FaCalendarAlt, FaCheckCircle } from "react-icons/fa";
@@ -24,7 +23,6 @@ export default function Home() {
   const [selectedCardTitle, setSelectedCardTitle] = useState(null);
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
   const [openNewFaqIndex, setOpenNewFaqIndex] = useState(null);
-  const [activeHeroSlide, setActiveHeroSlide] = useState(0);
 
   useEffect(() => {
     const elements = Array.from(document.querySelectorAll("[data-reveal]"));
@@ -223,32 +221,6 @@ export default function Home() {
     // { label: "FAQ", href: "#operations" },
   ];
 
-  const heroSlides = [
-    {
-      image: "/assets/customerr.png",
-      title: "WhatsApp-first bookings",
-      description:
-        "Guests answer in chat, you see clear summaries and confirm in one tap.",
-    },
-    {
-      image: "/assets/managerr.png",
-      title: "Ready in minutes",
-      description:
-        "No install—just complete the setup prompts and start testing with your team.",
-    },
-  ];
-
-  useEffect(() => {
-    const totalSlides = heroSlides.length;
-    if (!totalSlides) return;
-
-    const timer = window.setInterval(() => {
-      setActiveHeroSlide((prev) => (prev + 1) % totalSlides);
-    }, 4800);
-
-    return () => window.clearInterval(timer);
-  }, [heroSlides.length]);
-
   return (
     <div className="min-h-screen bg-white text-[#0f172a]">
       <div className="sticky top-0 z-40">
@@ -280,13 +252,13 @@ export default function Home() {
                   </a>
                 ))}
               </div>
-              <LanguageSwitcher />
+              {/* <LanguageSwitcher /> */}
             </div>
           </div>
         </header>
       </div>
 
-      <main className="space-y-16">
+      <main>
         <section className="relative w-full px-6 pt-24 pb-12 md:pt-28 md:pb-16 min-h-[100dvh] md:min-h-screen flex items-center bg-gradient-to-br from-green-50 via-white to-[#1bf277]">
           <div
             aria-hidden="true"
@@ -324,49 +296,35 @@ export default function Home() {
                   </li>
                 </ul>
               </div>
-              <div className="flex items-center gap-3 justify-center sm:justify-start">
+              <div className="flex gap-3 justify-center md:justify-start">
                 <a
                   href="#"
-                  className="flex items-center gap-2 rounded-full bg-[#006d5a] px-6 py-3 text-sm sm:text-base font-semibold text-white shadow-[0_12px_32px_-16px_rgba(0,109,90,0.7)] hover:-translate-y-0.5 transition"
+                  className="flex gap-2 rounded-full bg-[#006d5a] px-6 py-3 text-sm sm:text-base font-semibold text-white shadow-[0_12px_32px_-16px_rgba(0,109,90,0.7)] hover:-translate-y-0.5 transition"
                 >
                   <FaWhatsapp size={23} /> {t("hero.cta")}
                 </a>
               </div>
-              <span className="text-sm uppercase tracking-[0.18em] text-center sm:text-left">
+              <div className="text-lg font-semibold text-center md:text-start">
                 {t("hero.microline")}
-              </span>
+              </div>
             </div>
 
+            {/* Media column keeps the demo asset anchored opposite to the hero copy */}
             <div className="relative order-last md:order-none w-full">
-              <div className="relative w-full overflow-hidden  shadow-emerald-100/60 backdrop-blur">
-                {heroSlides.map((slide, idx) => (
-                  <div
-                    key={slide.title + idx}
-                    className={`transition-opacity duration-500 ${activeHeroSlide === idx ? "relative opacity-100" : "absolute inset-0 opacity-0 pointer-events-none"}`}
-                  >
-                    <Image
-                      src={slide.image}
-                      alt={slide.title}
-                      width={1200}
-                      height={900}
-                      className="h-auto w-full object-cover"
-                      sizes="(min-width: 1280px) 640px, (min-width: 1024px) 560px, 90vw"
-                      priority={idx === 0}
-                    />
-                    
-                  </div>
-                ))}
-              </div>
-              <div className="mt-4 flex items-center justify-center gap-3 md:justify-end">
-                {heroSlides.map((_, idx) => (
-                  <button
-                    key={idx}
-                    type="button"
-                    aria-label={`Go to slide ${idx + 1}`}
-                    onClick={() => setActiveHeroSlide(idx)}
-                    className={`h-2.5 w-2.5 rounded-full transition ${activeHeroSlide === idx ? "bg-[#006d5a]" : "bg-emerald-100"}`}
-                  />
-                ))}
+              <div className="relative w-full overflow-hidden shadow-emerald-100/60 backdrop-blur">
+                {/* Autoplaying muted video showcases the product while staying performance-friendly */}
+                <video
+                  className="h-auto w-full object-cover"
+                  src="/assets/video.mp4"
+                  aria-label="Product demo video showing the reservation assistant in action"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  preload="metadata"
+                >
+                  Your browser does not support the video tag.
+                </video>
               </div>
             </div>
           </div>
@@ -394,7 +352,7 @@ export default function Home() {
                 className={`flex justify-center items-center reveal group isolate relative overflow-hidden transition will-change-transform focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-600/40 before:pointer-events-none before:absolute before:-top-28 before:-right-24 before:h-56 before:w-56 before:rounded-full before:bg-gradient-to-br before:from-[#006d5a]/20 before:via-[#16a34a]/10 before:to-transparent before:blur-2xl before:opacity-0 before:transition before:duration-500 group-hover:before:opacity-100 after:pointer-events-none after:absolute after:inset-0 after:bg-[linear-gradient(to_right,rgba(0,109,90,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,109,90,0.08)_1px,transparent_1px)] after:bg-[size:28px_28px] after:opacity-0 after:transition after:duration-500 group-hover:after:opacity-100`}
                 style={{ transitionDelay: `${60}ms` }}
               >
-                <span className="text-center text-lg font-light text-[#3b3b3b]">{t("problem.text")}</span>
+                <span className="text-center text-lg text-base text-[#3b3b3b] leading-relaxed">{t("problem.text")}</span>
               </div>
             </div>
           </section>
@@ -482,9 +440,9 @@ export default function Home() {
                     >
                       <div className="flex items-center gap-3 mb-8">
                         <div className="w-fit rounded-xl">
-                          <Icon className="text-[#09474f] size-6 transition-transform duration-300 group-hover:scale-110" />
+                          <Icon className="font-bold text-[#09474f] size-6 transition-transform duration-300 group-hover:scale-110" />
                         </div>
-                        <p className="text-2xl font-normal">
+                        <p className="text-2xl font-semibold">
                           {feature.title}
                         </p>
                       </div>
@@ -565,7 +523,7 @@ export default function Home() {
                 data-reveal
                 className="reveal flex flex-col items-center gap-3 text-center"
               >
-                <h2 className="text-4xl font-semibold">{t("faq.title")}</h2>
+                <h2 className="text-4xl font-medium text-black">{t("faq.title")}</h2>
               </div>
 
               <div className="mt-6 overflow-hidden rounded-xl border border-[#e0e0e0] bg-white">
@@ -589,7 +547,7 @@ export default function Home() {
                           </h3>
                         </div>
                         <span
-                          className={`flex h-9 w-9 items-center justify-center rounded-full border border-[#e0e0e0] text-base font-bold text-[#006d5a] transition-transform duration-200 ${isOpen ? "rotate-45" : ""
+                          className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#e0e0e0] text-base font-bold text-[#006d5a] transition-transform duration-200 ${isOpen ? "rotate-45" : ""
                             }`}
                         >
                           +
@@ -624,7 +582,7 @@ export default function Home() {
                 data-reveal
                 className="reveal flex flex-col items-center gap-4 text-center"
               >
-                <h2 className="text-3xl sm:text-3xl font-medium text-[#0f172a] leading-tight">
+                <h2 className="text-4xl font-medium text-black">
                   {t("final-cta.title")}
                 </h2>
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#006d5a]">
